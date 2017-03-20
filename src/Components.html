@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Component</title>
+    <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+    function Comment(props) {
+        return (
+            <div className="Comment">
+                <UserInfo user={props.author} />
+                <div className="Comment-text">
+                    {props.text}
+                </div>
+                <div className="Comment-date">
+                    {formatDate(props.date)}
+                </div>
+            </div>
+        );
+    }
+
+    function Avatar(props) {
+        return (
+            <img className="Avatar" 
+                src={props.user.avatarUrl} 
+                alt={props.user.name} 
+            />
+        );
+    }
+
+    function UserInfo(props) {
+        return (
+            <div className="UserInfo">
+                <Avatar user={props.user} />
+                <div className="UserInfo-name">
+                    {props.user.name}
+                </div>
+            </div>
+        );
+    }
+
+    //Pure, does not change the props
+    function sum(a, b) {
+        return a + b;
+    }
+
+    //Impure because it changes the value, not good for component
+    function withdraw(account, amount) {
+        account.total -= amount;
+    }
+
+
+
+
+      ReactDOM.render(
+        <Comment />, 
+        document.getElementById('root')
+      );
+
+    </script>
+  </body>
+</html>
