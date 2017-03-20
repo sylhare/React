@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+    const test = <h1>Test example</h1>;  //That's JSX, syntax extension to Javascript
+    
+    const user = {
+        firstName: "John",
+        lastName: "Doe",
+        avatarUrl: "https://facebook.github.io/react/img/logo.svg"
+    };
+
+    const tab = <div tabIndex="0"></div>;
+    const img = <img src={user.avatarUrl}></img>;
+    const e = React.createElement;
+
+
+    const element = (
+        <div>
+            <h1 className="greeting">
+                Hello {getGreeting(user)}!
+            </h1>
+            {img}
+        </div>
+        
+    ); 
+
+    //Equivalent of element object above
+    const element1 = React.createElement(
+        'div',
+        null,
+        React.createElement(
+            'h1',
+            {className: "greeting"},
+            'Hello '+ getGreeting(user) +'!'
+        ),
+        img
+    );
+
+    /** Equivalent of element2 object above,
+    we've assigned e to React.createElement */
+    const element2 = e(
+        'div',
+        null,
+        e(
+            'h1',
+            {className: "greeting"},
+            'Hello '+ getGreeting(user) +'!'
+        ),
+        img
+    );
+
+    /** This is what createElement do (simplified), 
+    to get multiple childs,you can do multiple create element
+    const element_explained = {
+        type: 'h1',
+        props: {
+            className: 'greetings',
+            children: 'Hello '+ getGreeting(user) +'!'
+        }
+    };
+    */
+
+    function formatName(user) {
+        return user.firstName + ' ' + user.lastName;
+    }
+    
+    function getGreeting(input) {
+        if (user) {
+            return formatName(input);
+        }
+        return "Stranger";
+    }
+
+      ReactDOM.render(
+        //<h1>Test example</h1>, //Add this html part in the view
+        //test, //Does the same as above
+        element2, 
+        document.getElementById('root')  //render from the div 'root'
+      );
+
+    </script>
+  </body>
+</html>
