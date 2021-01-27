@@ -1,55 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8"/>
     <title>Hello Plus</title>
     <script src="https://unpkg.com/react@latest/dist/react.js"></script>
     <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="text/babel">
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
 
-    
 
-    /** 
-    Two Component ("Welcome") that does the same thing
-    component names start with a capital letter
-    */
-    //A javascript function : "functionnal Component"
-    function Welcome(props) {
-        return <h1> Hello, {props.name}</h1>;
+  /**
+   Two Component ("Welcome") that does the same thing
+   component names start with a capital letter
+   */
+  //A javascript function : "functionnal Component"
+  function Welcome(props) {
+    return <h1> Hello, {props.name}</h1>;
+  }
+
+  //An ES6 class as a component
+  class Welcome2 extends React.Component {
+    render() {
+      return <h1>Hello, {this.props.name}</h1>;
     }
+  }
 
-   //An ES6 class as a component
-    class Welcome2 extends React.Component {
-        render(){
-            return <h1>Hello, {this.props.name}</h1>;
-        }
-    }
-    //element representing user defined component
-    const element = <Welcome name="Sara" test = "invisble"/>; 
-    //const element = <Welcome2 name="Sara" />; 
+  //element representing user defined component
+  const element = <Welcome name="Sara" test="invisble"/>;
 
-    function App() {
-        return (
-            <div>
-                <Welcome name="Sarah" />
-                <Welcome name="Carol" />
-                <Welcome name="Johan" />
-            </div>
-        )
-        
-    }
+  //const element = <Welcome2 name="Sara" />;
+
+  function App() {
+    return (
+      <div>
+        <Welcome name="Sarah"/>
+        <Welcome name="Carol"/>
+        <Welcome name="Johan"/>
+      </div>
+    )
+
+  }
 
 
-      ReactDOM.render(
-        //element,
-        <App />,
-        document.getElementById('root')
-      );
+  ReactDOM.render(
+    //element,
+    <App/>,
+    document.getElementById('root')
+  );
 
-    </script>
-  </body>
+</script>
+</body>
 </html>
