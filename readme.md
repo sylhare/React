@@ -35,6 +35,15 @@ Just update node to the latest version. if you are using [`n`](https://github.co
 n latest
 ```
 
+> Cannot find module '@testing-library/react/types' from 'src/App.test.js'
+
+It may be deprecated and may not have been fixed but it works if you remove the `/types` and use directly:
+
+```js
+import { render, screen } from '@testing-library/react';
+```
+
+
 ## Sources
 
 For learning purposes:
