@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Todo test: Make sure it stays the same 1`] = `
+<div>
+  <h3
+    class=""
+    data-testid="item"
+  >
+    todo1
+  </h3>
+  <div />
+  <button>
+    Select
+  </button>
+  <h3
+    class=""
+    data-testid="item"
+  >
+    todo2
+  </h3>
+  <div />
+  <button>
+    Select
+  </button>
+</div>
+`;
