@@ -51,4 +51,6 @@ For learning purposes:
 - Facebook: [React tutorial](https://facebook.github.io/react/tutorial/tutorial.html#what-were-building), [create-react-app](https://github.com/facebook/create-react-app)
 - Scotch.io: [React tutorial](https://scotch.io/tutorials/learning-react-getting-started-and-concepts)
 - FreeCodeCamp: [React App One](https://www.freecodecamp.org/news/develop-deploy-first-fullstack-web-app/), [React App Two](https://www.freecodecamp.org/news/fullstack-react-blog-app-with-express-and-psql/)
-
+- Free Online rest API: [jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com/)
+- React Documentation: [API calls](https://reactjs.org/docs/faq-ajax.html), [conditional rendering](https://reactjs.org/docs/conditional-rendering.html)
+- Other Documentation: [Pass props to component](https://www.robinwieruch.de/react-pass-props-to-component), [Remove element from list](https://www.robinwieruch.de/react-remove-item-from-list), [One page app](https://www.kirupa.com/react/creating_single_page_app_react_using_react_router.htm)

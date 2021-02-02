@@ -4,6 +4,7 @@ import TodoContainer from "./components/Todo";
 import Fetch from "./components/Fetch";
 import FetchApi from "./components/FetchApi";
 import FetchApiHooks from "./components/FetchApiHooks";
+import ListExample from "./components/ListExample";
 import Greetings from "./components/Greetings";
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
 
       <FetchApiHooks/>
 
+      <ListExample/>
 
     </div>
   );
