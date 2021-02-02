@@ -4,6 +4,7 @@ import TodoContainer from "./components/Todo";
 import Fetch from "./components/Fetch";
 import FetchApi from "./components/FetchApi";
 import FetchApiHooks from "./components/FetchApiHooks";
+import Greetings from "./components/Greetings";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <Greetings />
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -31,11 +33,12 @@ function App() {
           title: 'todo2'
         }]}/>
 
-      <Fetch/>
+      <Fetch url="/greetings"/>
 
       <FetchApi/>
 
       <FetchApiHooks/>
+
 
     </div>
   );
