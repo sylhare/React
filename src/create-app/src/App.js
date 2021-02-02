@@ -1,6 +1,9 @@
 import logo from './resources/logo.svg';
 import './App.css';
 import TodoContainer from "./components/Todo";
+import Fetch from "./components/Fetch";
+import FetchApi from "./components/FetchApi";
+import FetchApiHooks from "./components/FetchApiHooks";
 
 function App() {
   return (
@@ -27,6 +30,13 @@ function App() {
         {
           title: 'todo2'
         }]}/>
+
+      <Fetch/>
+
+      <FetchApi/>
+
+      <FetchApiHooks/>
+
     </div>
   );
 }
