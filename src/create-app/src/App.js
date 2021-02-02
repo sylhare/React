@@ -6,6 +6,8 @@ import FetchApi from "./components/FetchApi";
 import FetchApiHooks from "./components/FetchApiHooks";
 import ListExample from "./components/ListExample";
 import Greetings from "./components/Greetings";
+import MyForm from "./components/MyForm";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -41,6 +43,10 @@ function App() {
       <FetchApiHooks/>
 
       <ListExample/>
+
+      <MyForm />
+
+      <Register />
 
     </div>
   );
