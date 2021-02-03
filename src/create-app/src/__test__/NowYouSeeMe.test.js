@@ -4,7 +4,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 
 // 2
 import '@testing-library/jest-dom';
-import NowYouSeeMe from '../components/NowYouSeeMe';
+import NowYouSeeMe from '../Components/NowYouSeeMe';
 
 describe('<NowYouSeeMe />', () => {
   it('Should toggle the cat image div', () => {

@@ -3,7 +3,7 @@ import { rest } from 'msw'
 import { setupServer } from 'msw/node'
 import { render, fireEvent, waitFor, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-import Fetch from '../components/Fetch'
+import Fetch from '../Components/Fetch'
 
 const server = setupServer(
   rest.get('/greeting', (req, res, ctx) => {
