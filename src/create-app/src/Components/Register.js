@@ -33,22 +33,13 @@ export default class Register extends Component {
 
     switch (name) {
       case 'fullName':
-        errors.fullName =
-          value.length < 5
-            ? 'Full Name must be 5 characters long!'
-            : '';
+        errors.fullName = value.length < 5 ? 'Full Name must be 5 characters long!' : '';
         break;
       case 'email':
-        errors.email =
-          validEmailRegex.test(value)
-            ? ''
-            : 'Email is not valid!';
+        errors.email = validEmailRegex.test(value) ? '' : 'Email is not valid!';
         break;
       case 'password':
-        errors.password =
-          value.length < 8
-            ? 'Password must be 8 characters long!'
-            : '';
+        errors.password = value.length < 8 ? 'Password must be 8 characters long!' : '';
         break;
       default:
         break;
@@ -72,22 +63,22 @@ export default class Register extends Component {
       <div className='wrapper'>
         <div className='form-wrapper'>
           <h2>Create Account</h2>
-          <form onSubmit={this.handleSubmit} noValidate>
+          <form onSubmit={this.handleSubmit} >
             <div className='fullName'>
               <label htmlFor="fullName">Full Name</label>
-              <input type='text' name='fullName' onChange={this.handleChange} noValidate />
+              <input type='text' name='fullName' onChange={this.handleChange}  />
               {errors.fullName.length > 0 &&
               <span className='error'>{errors.fullName}</span>}
             </div>
             <div className='email'>
               <label htmlFor="email">Email</label>
-              <input type='email' name='email' onChange={this.handleChange} noValidate />
+              <input type='email' name='email' onChange={this.handleChange}  />
               {errors.email.length > 0 &&
               <span className='error'>{errors.email}</span>}
             </div>
             <div className='password'>
               <label htmlFor="password">Password</label>
-              <input type='password' name='password' onChange={this.handleChange} noValidate />
+              <input type='password' name='password' onChange={this.handleChange}  />
               {errors.password.length > 0 &&
               <span className='error'>{errors.password}</span>}
             </div>

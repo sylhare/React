@@ -1,5 +1,5 @@
 p, div {
-  font-family: Lato;
+  font-family: Lato, Arial, sans-serif;
 }
 
 /*
@@ -97,7 +97,6 @@ button:hover {
 .error {
   color:#db2269;
   font-size: 0.5em;
-  display: relative;
 }
 
 .fullName,
