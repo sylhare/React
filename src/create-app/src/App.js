@@ -9,6 +9,7 @@ import Greetings from "./Components/Greetings";
 import MyForm from "./Components/MyForm";
 import Register from "./Components/Register";
 import Forms from "./Material/Demo";
+import Parent from "./Components/Parent";
 
 function App() {
   return (
@@ -48,6 +49,10 @@ function App() {
       <MyForm />
 
       <Register />
+
+      <Forms />
+
+      <Parent/>
 
     </div>
   );
