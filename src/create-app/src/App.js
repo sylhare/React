@@ -10,6 +10,8 @@ import MyForm from "./Components/MyForm";
 import Register from "./Components/Register";
 import Forms from "./Material/Demo";
 import Parent from "./Components/Parent";
+import FunctionalComponent from "./Examples/FunctionalComponent";
+import ClassComponent from "./Examples/ClassComponent";
 
 function App() {
   return (
@@ -53,6 +55,10 @@ function App() {
       <Forms />
 
       <Parent/>
+
+      <FunctionalComponent />
+
+      <ClassComponent value={"props value"}/>
 
     </div>
   );
