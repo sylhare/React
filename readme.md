@@ -48,9 +48,23 @@ import { render, screen } from '@testing-library/react';
 
 For learning purposes:
 
-- Facebook: [React tutorial](https://facebook.github.io/react/tutorial/tutorial.html#what-were-building), [create-react-app](https://github.com/facebook/create-react-app)
+- Facebook: [React tutorial](https://facebook.github.io/react/tutorial/tutorial.html#what-were-building), 
+[create-react-app](https://github.com/facebook/create-react-app)
 - Scotch.io: [React tutorial](https://scotch.io/tutorials/learning-react-getting-started-and-concepts)
-- FreeCodeCamp: [React App One](https://www.freecodecamp.org/news/develop-deploy-first-fullstack-web-app/), [React App Two](https://www.freecodecamp.org/news/fullstack-react-blog-app-with-express-and-psql/)
+- FreeCodeCamp: [React App One](https://www.freecodecamp.org/news/develop-deploy-first-fullstack-web-app/), 
+[React App Two](https://www.freecodecamp.org/news/fullstack-react-blog-app-with-express-and-psql/)
 - Free Online rest API: [jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com/)
-- React Documentation: [API calls](https://reactjs.org/docs/faq-ajax.html), [conditional rendering](https://reactjs.org/docs/conditional-rendering.html)
-- Other Documentation: [Pass props to component](https://www.robinwieruch.de/react-pass-props-to-component), [Remove element from list](https://www.robinwieruch.de/react-remove-item-from-list), [One page app](https://www.kirupa.com/react/creating_single_page_app_react_using_react_router.htm)
+- React Documentation: [API calls](https://reactjs.org/docs/faq-ajax.html), 
+[conditional rendering](https://reactjs.org/docs/conditional-rendering.html)
+- Redux Documentation: [react-redux](https://react-redux.js.org/introduction/quick-start), 
+[React-redux examples](https://github.com/reduxjs/redux/tree/3cf3b0f48c4093aaa094eedb11efa8656e9b0309/examples),
+[Access redux store](https://medium.com/swlh/accessing-redux-from-components-in-react-react-native-d9f0e4cdb2dc),
+[Access redux store from outside component](https://daveceddia.com/access-redux-store-outside-react/),
+[React + Redux real world example](https://jasonwatmore.com/post/2017/09/16/react-redux-user-registration-and-login-tutorial-example)
+- Other Documentation: [Pass props to component](https://www.robinwieruch.de/react-pass-props-to-component), 
+[Remove element from list](https://www.robinwieruch.de/react-remove-item-from-list), 
+[One page app](https://www.kirupa.com/react/creating_single_page_app_react_using_react_router.htm), 
+[react with jwt](https://bezkoder.com/spring-boot-react-jwt-auth/), 
+[Real world example](https://github.com/bezkoder/react-redux-hooks-jwt-auth/tree/28a25f525aee8f6a73f2bd1165c0b868aeedb7b5), 
+[react with login](https://www.digitalocean.com/community/tutorials/how-to-add-login-authentication-to-react-applications#step-1-%E2%80%94-building-a-login-page),
+[Private route](https://ui.dev/react-router-v4-protected-routes-authentication/)
