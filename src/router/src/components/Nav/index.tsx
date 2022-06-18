@@ -1,6 +1,7 @@
 import { Link, Navigate, Route, Routes, useMatch } from 'react-router-dom';
 import Learn from '../Learn';
 import { useEffect } from 'react';
+import { HelloParent } from '../Functional/Hello';
 
 function App() {
   useEffect(() => {
@@ -26,6 +27,7 @@ function App() {
             <li><Link className="App-link" to="/random">Test</Link></li>
           </ul>
         </nav>
+        <HelloParent />
       </header>
     </div>
   );
