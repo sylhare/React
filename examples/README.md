@@ -1,7 +1,4 @@
-# React 
-
-Some react tests.
-
+# Examples
 
 ## Basic
 
@@ -10,7 +7,7 @@ No npm / yarn installation required to test it, but it might be getting old (201
 
 ## App
 
-This is the starting [one](src/create-app/README.md).
+This is the starting [one](examples/create-app/README.md).
 Preferably using [yarn](https://yarnpkg.com/) as it is backed by facebook as well.
 
 Start with:
