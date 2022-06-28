@@ -47,7 +47,5 @@ Temporary Items
 .apdisk
 .idea/*
 **/.idea/*
-src/frontend/*
 **/.eslintcache
-src/draft/*
 **/node_modules/**
