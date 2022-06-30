@@ -4,14 +4,14 @@ import './Learn.css';
 
 export function Learn() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div className="Learn">
+      <header className="Learn-header">
+        <img src={logo} className="Learn-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Edit <code>src/Learn/Learn.tsx</code> and save to reload.
         </p>
         <a
-          className="App-link"
+          className="Learn-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
