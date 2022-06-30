@@ -42,10 +42,13 @@
     ]
   },
   "presets": [
-    ["@babel/preset-env", {
-      "useBuiltIns": "usage",
-      "corejs": "3.12.1"
-    }],
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage",
+        "corejs": "3.12.1"
+      }
+    ],
     "@babel/preset-react",
     "@babel/preset-typescript"
   ],
