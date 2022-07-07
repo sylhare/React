@@ -15,7 +15,7 @@ export const RoutedApp = (): JSX.Element => (
 
 export function Home() {
   return (
-    <>
+    <div data-testid={'home'}>
       <main>
         <h2>Welcome to the homepage!</h2>
         <p>You can do this, I believe in you.</p>
@@ -23,13 +23,13 @@ export function Home() {
       <nav>
         <Link to="/about">About</Link>
       </nav>
-    </>
+    </div>
   );
 }
 
 function About() {
   return (
-    <>
+    <div data-testid={'about'}>
       <main>
         <h2>Who are we?</h2>
         <p>
@@ -40,6 +40,6 @@ function About() {
       <nav>
         <Link to="/home">Home</Link>
       </nav>
-    </>
+    </div>
   );
 }
