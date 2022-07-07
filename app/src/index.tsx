@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './utils/reportWebVitals';
-import { Learn } from './Learn/Learn';
+import { BrowserRouter } from 'react-router-dom';
+import { RoutedApp } from './RoutedApp/App';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -10,7 +11,9 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <Learn />
+    <BrowserRouter>
+      <RoutedApp/>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
