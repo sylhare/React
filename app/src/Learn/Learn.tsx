@@ -4,7 +4,7 @@ import './Learn.css';
 
 export function Learn() {
   return (
-    <div className="Learn">
+    <div className="Learn" data-testid={'learn'}>
       <header className="Learn-header">
         <img src={logo} className="Learn-logo" alt="logo" />
         <p>
