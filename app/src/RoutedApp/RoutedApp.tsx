@@ -3,14 +3,12 @@ import { Link, Route, Routes } from 'react-router-dom';
 import { Learn } from '../Learn/Learn';
 
 export const RoutedApp = (): JSX.Element => (
-  <div className="App">
-    <h1>Welcome to React Router!</h1>
-    <Routes>
-      <Route path="/" element={<Learn/>}/>
-      <Route path="/home" element={<Home/>}/>
-      <Route path="about" element={<About/>}/>
-    </Routes>
-  </div>
+  <Routes>
+    <Route path="/" element={<Learn/>}/>
+    <Route path="/learn" element={<Learn/>}/>
+    <Route path="/home" element={<Home/>}/>
+    <Route path="/about" element={<About/>}/>
+  </Routes>
 );
 
 export function Home() {
@@ -21,7 +19,10 @@ export function Home() {
         <p>You can do this, I believe in you.</p>
       </main>
       <nav>
-        <Link to="/about">About</Link>
+        <ul>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/learn">Learn</Link></li>
+        </ul>
       </nav>
     </div>
   );

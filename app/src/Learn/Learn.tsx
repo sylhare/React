@@ -10,6 +10,7 @@ export function Learn() {
         <p>
           Edit <code>src/Learn/Learn.tsx</code> and save to reload.
         </p>
+        <div className={"Learn-inline"}>
         <a
           className="Learn-link"
           href="https://reactjs.org"
@@ -18,6 +19,13 @@ export function Learn() {
         >
           Learn React
         </a>
+        <a
+          className="Learn-link"
+          href="/home"
+        >
+          Home
+        </a>
+        </div>
       </header>
     </div>
   );
