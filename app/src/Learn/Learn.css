@@ -26,6 +26,11 @@
 
 .Learn-link {
   color: #61dafb;
+  margin: 5px
+}
+
+.Learn-inline {
+  display: block;
 }
 
 @keyframes Learn-logo-spin {
