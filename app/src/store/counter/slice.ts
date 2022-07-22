@@ -7,7 +7,7 @@ interface CounterState {
 }
 
 // Define the initial state using that type
-const initialState: CounterState = {
+export const initialState: CounterState = {
   value: 0
 }
 
