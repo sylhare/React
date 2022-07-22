@@ -32,10 +32,24 @@ describe('Counter', () => {
     expect(screen.getByText(/42/)).toBeInTheDocument();
   });
 
-  it('increment by one the counter', () => {
+  it('increments by one the counter', () => {
     renderWithProviders(<Counter/>, { preloadedState: { counter: { value: 1 } } });
     const incrementButton = screen.getByRole('button', { name: '+1' })
     fireEvent.click(incrementButton);
     expect(screen.getByText(/2/)).toBeInTheDocument();
+  });
+
+  it('decrements by one the counter', () => {
+    renderWithProviders(<Counter/>, { preloadedState: { counter: { value: 3 } } });
+    const incrementButton = screen.getByRole('button', { name: '-1' })
+    fireEvent.click(incrementButton);
+    expect(screen.getByText(/2/)).toBeInTheDocument();
+  });
+
+  it('increments by then the counter', () => {
+    renderWithProviders(<Counter/>, { preloadedState: { counter: { value: 1 } } });
+    const incrementButton = screen.getByRole('button', { name: '+10' })
+    fireEvent.click(incrementButton);
+    expect(screen.getByText(/11/)).toBeInTheDocument();
   });
 });
