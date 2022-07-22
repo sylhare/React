@@ -14,11 +14,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
+    "@babel/plugin-syntax-flow": "^7.18.6",
+    "@babel/plugin-transform-react-jsx": "^7.18.6",
     "@babel/preset-env": "^7.18.6",
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.17.12",
-    "@babel/plugin-syntax-flow": "^7.18.6",
-    "@babel/plugin-transform-react-jsx": "^7.18.6",
     "@testing-library/dom": "^8.14.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -31,6 +31,7 @@
     "css-loader": "^6.7.1",
     "eslint": "^8.3.0",
     "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-react": "^7.27.1",
     "eslint-webpack-plugin": "^3.2.0",
     "history": "^5.3.0",
     "html-webpack-plugin": "^5.5.0",
@@ -56,10 +57,19 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:react/recommended"
+    ],
+    "plugins": [
+      "react"
     ],
     "rules": {
-      "react/boolean-prop-naming": ["error", { "rule": "^(is|has)[A-Z]([A-Za-z0-9]?)+" }]
+      "react/boolean-prop-naming": [
+        "error",
+        {
+          "rule": "^(is|has)[A-Z]([A-Za-z0-9]?)+"
+        }
+      ]
     }
   },
   "presets": [
