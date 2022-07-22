@@ -8,7 +8,8 @@ const rootReducer = combineReducers({
   counter: counterReducer,
 })
 
-export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
+// Using EnhancedStore type does not work, so we need to put any then use the `AppStore` type later
+export const setupStore = (preloadedState?: PreloadedState<RootState>): any => {
   return configureStore({
     reducer: rootReducer,
     preloadedState

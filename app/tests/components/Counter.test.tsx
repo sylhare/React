@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 import { PreloadedState } from '@reduxjs/toolkit';
-import { fireEvent, render, RenderOptions, screen } from '@testing-library/react';
+import { fireEvent, render, RenderOptions, RenderResult, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { AppStore, RootState, setupStore } from '../../src/store/store';
 import { Counter } from '../../src/Counter/Counter';
@@ -18,12 +18,12 @@ export function renderWithProviders(
     store = setupStore(preloadedState),
     ...renderOptions
   }: ExtendedRenderOptions = {}
-) {
-  const Wrapper = ({ children }: PropsWithChildren<{}>): JSX.Element => (
+): RenderResult {
+  const Wrapper = ({ children }: PropsWithChildren<unknown>): JSX.Element => (
     <Provider store={store}><MemoryRouter>{children}</MemoryRouter></Provider>
   );
 
-  return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) }
+  return render(ui, { wrapper: Wrapper, ...renderOptions });
 }
 
 describe('Counter', () => {
