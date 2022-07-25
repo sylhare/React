@@ -1,12 +1,11 @@
-import { counterSlice, decrement, increment, incrementByAmount, initialState } from '../../src/store/counter/slice';
+import { counterReducer, decrement, increment, incrementByAmount, initialState } from '../../src/store/counter/slice';
 import { AnyAction } from 'redux';
 
-describe('counter slice reducer', () => {
-  const reducer = counterSlice.reducer;
+describe('counter slice counterReducer', () => {
 
   it('returns the initial state by default', () => {
     const anyAction: AnyAction = { type: 'ANY_ACTION', };
-    expect(reducer(undefined, anyAction)).toEqual(initialState);
+    expect(counterReducer(undefined, anyAction)).toEqual(initialState);
   });
 
   it('returns the initial state on random action', () => {
@@ -14,22 +13,30 @@ describe('counter slice reducer', () => {
       type: 'RANDOM_ACTION',
       payload: { value: 2 },
     };
-    expect(reducer(initialState, randomAction)).toEqual(initialState);
+    expect(counterReducer(initialState, randomAction)).toEqual(initialState);
   });
 
   it('increments', () => {
-    expect(reducer(initialState, increment()))
+    expect(counterReducer(initialState, increment()))
       .toMatchObject({ value: 1 });
   });
 
   it('decrements', () => {
-    expect(reducer(initialState, decrement()))
+    expect(counterReducer(initialState, decrement()))
       .toMatchObject({ value: -1 });
   });
 
 
   it('increments by amount', () => {
-    expect(reducer(initialState, incrementByAmount(10)))
+    expect(counterReducer(initialState, incrementByAmount(10)))
       .toMatchObject({ value: 10 });
+  });
+
+  it('increments by 10', () => {
+    const manualAction: AnyAction = {
+      type: 'counter/incrementByAmount',
+      payload: 10,
+    };
+    expect(counterReducer(initialState, manualAction)).toEqual({ value: 10 });
   });
 });
