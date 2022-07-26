@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import { Learn } from '../Learn/Learn';
 import { Counter } from '../Counter/Counter';
@@ -10,8 +10,11 @@ export const RoutedApp = (): JSX.Element => (
     <Route path="/counter" element={<Counter/>}/>
     <Route path="/home" element={<Home/>}/>
     <Route path="/about" element={<About/>}/>
+    <Route path="/component" element={<Component />}/>
   </Routes>
 );
+
+const Component = lazy(() => import('../Component/Component'));
 
 export function Home() {
   return (
@@ -25,6 +28,7 @@ export function Home() {
           <li><Link to="/about">About</Link></li>
           <li><Link to="/learn">Learn</Link></li>
           <li><Link to="/counter">Counter</Link></li>
+          <li><Link to="/component">Component</Link></li>
         </ul>
       </nav>
     </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './utils/reportWebVitals';
@@ -14,9 +14,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-    <BrowserRouter>
-      <RoutedApp/>
-    </BrowserRouter>
+      <BrowserRouter>
+        <Suspense fallback={<div>Loading...</div>}>
+          <RoutedApp/>
+        </Suspense>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );
