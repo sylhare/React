@@ -64,12 +64,8 @@
       "react"
     ],
     "rules": {
-      "react/boolean-prop-naming": [
-        "error",
-        {
-          "rule": "^(is|has)[A-Z]([A-Za-z0-9]?)+"
-        }
-      ]
+      "react/boolean-prop-naming": ["error", { "rule": "^(is|has)[A-Z]([A-Za-z0-9]?)+" }],
+      "testing-library/no-render-in-setup": ["error", {"allowTestingFrameworkSetupHook": "beforeEach"}]
     }
   },
   "presets": [
