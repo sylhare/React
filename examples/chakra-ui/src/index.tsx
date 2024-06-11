@@ -1,14 +1,10 @@
-// 1. import `ChakraProvider` component
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Card, CardBody, CardHeader, ChakraProvider, Container, Text } from '@chakra-ui/react';
 
 function App(): React.JSX.Element {
-  // 2. Wrap ChakraProvider at the root of your app
   return (
     <ChakraProvider>
-      {/* the rest of your app */}
-
       <Container
         paddingTop={5}
         minHeight={'100vh'}
