@@ -15,7 +15,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@_components/*": ["src/components/*"],
+      "@_tests/*": ["src/tests/*"],
     },
     "allowSyntheticDefaultImports": true,
     "incremental": false
