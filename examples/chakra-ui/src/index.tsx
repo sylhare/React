@@ -1,7 +1,8 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { Card, CardBody, CardHeader, ChakraProvider, Container, Select, Text } from '@chakra-ui/react';
+import { Card, CardBody, CardHeader, ChakraProvider, Container, Text } from '@chakra-ui/react';
 import { ExampleAligned } from './components/ExampleAligned';
+import { ExampleForm } from './components/ExampleForm';
 
 function App(): React.JSX.Element {
   return (
@@ -29,7 +30,8 @@ function App(): React.JSX.Element {
             <Text>
               Welcome to Chakra UI
             </Text>
-            <ExampleAligned />
+            <ExampleAligned/>
+            <ExampleForm/>
           </CardBody>
         </Card>
       </Container>
