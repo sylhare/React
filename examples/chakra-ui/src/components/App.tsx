@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardBody, CardHeader, ChakraProvider, Container, Text } from '@chakra-ui/react';
-import { ExampleAligned } from './ExampleAligned';
+import { ExampleAligned } from './tutorial/ExampleAligned';
 import { ExampleForm } from './forms/ExampleForm';
 
 export function App(): React.JSX.Element {
