@@ -1,7 +1,8 @@
 import React from 'react';
-import { Card, CardBody, CardHeader, ChakraProvider, Container, Text } from '@chakra-ui/react';
+import { Card, CardBody, CardHeader, ChakraProvider, Container, Spacer, Text } from '@chakra-ui/react';
 import { ExampleAligned } from './tutorial/ExampleAligned';
 import { ExampleForm } from './forms/ExampleForm';
+import { ParentComponent } from './tutorial/ParentComponent';
 
 export function App(): React.JSX.Element {
   return (
@@ -29,6 +30,8 @@ export function App(): React.JSX.Element {
             <Text>
               Welcome to Chakra UI
             </Text>
+            <ParentComponent/>
+            <Spacer/>
             <ExampleAligned/>
             <ExampleForm/>
           </CardBody>
