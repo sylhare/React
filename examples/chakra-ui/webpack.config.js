@@ -20,6 +20,10 @@ module.exports = {
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
+        alias: {
+            '@_hooks': path.resolve(__dirname, 'src/hooks'),
+            '@_components': path.resolve(__dirname, 'src/components'),
+        }
     },
     output: {
         filename: 'bundle.js',
