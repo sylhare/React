@@ -49,3 +49,4 @@ Temporary Items
 **/.idea/*
 **/.eslintcache
 **/node_modules/**
+**/coverage/

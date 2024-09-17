@@ -12,3 +12,4 @@ yarn start
 
 - [Chakra UI](https://chakra-ui.com/)
   - Getting started: [documentation](https://v2.chakra-ui.com/getting-started)
+- [React Hook Form](https://react-hook-form.com/)
