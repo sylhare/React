@@ -3,6 +3,8 @@ import { Box, Card, CardBody, CardHeader, ChakraProvider, Container, Text } from
 import { ExampleAligned } from './tutorial/ExampleAligned';
 import { ExampleForm } from './forms/ExampleForm';
 import { ParentComponent } from './tutorial/ParentComponent';
+import { Mess } from '@_components/tutorial/Mess';
+// import { Mess } from './tutorial/Mess';
 
 export function App(): React.JSX.Element {
   return (
@@ -35,6 +37,7 @@ export function App(): React.JSX.Element {
             </Box>
             <ExampleAligned/>
             <ExampleForm/>
+            <Mess/>
           </CardBody>
         </Card>
       </Container>
