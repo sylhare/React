@@ -1,0 +1,36 @@
+# Locally
+# for dir in app-misc create-app chakra-ui dnd router; do echo "Processing $dir"; cd $dir; yarn install; yarn build; yarn test; cd ..; echo "Finished processing $dir"; done
+name: Build and Test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        directory: ['app-misc', 'chakra-ui', 'dnd', 'router']
+        # Add more directories as needed
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: cd ${{ matrix.directory }} && yarn install
+
+      - name: Build
+        run: cd ${{ matrix.directory }} && yarn build
+
+      - name: Run tests
+        run: cd ${{ matrix.directory }} && yarn test
