@@ -13,8 +13,8 @@ Potluck of different examples.
 
 ## Create-App
 
-This is the starting [one](examples/create-app/README.md).
-Preferably using [yarn](https://yarnpkg.com/) as it is backed by facebook as well.
+Created from the old starting [project](create-app/README.md) which might be mostly deprecated now.
+Using [yarn](https://yarnpkg.com/) as it is well integrated with React.
 
 Start with:
 
@@ -32,7 +32,7 @@ yarn test
 
 - > error babel-jest@26.6.3: The engine "node" is incompatible with this module. Expected version ">= 10.14.2". Got "10.13.0"
 
-Just update node to the latest version. if you are using [`n`](https://github.com/tj/n) (useful when working with different node versions) just do:
+Update node to the latest version. If you are using [`n`](https://github.com/tj/n) (useful when working with different node versions) do:
 
 ```bash
 n latest
@@ -40,7 +40,7 @@ n latest
 
 - > Cannot find module '@testing-library/react/types' from 'src/App.test.js'
 
-It may be deprecated and may not have been fixed but it works if you remove the `/types` and use directly:
+It may be deprecated and may not have been fixed, but it works if you remove the `/types` and use directly:
 
 ```js
 import { render, screen } from '@testing-library/react';
