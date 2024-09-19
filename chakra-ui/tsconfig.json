@@ -17,7 +17,7 @@
     "paths": {
       "@_tests/*": ["src/tests/*"],
       "@_components/*": ["src/components/*"],
-      "@_hooks/*": ["src/hooks/*"],
+      "@_hooks/*": ["src/hooks/*"]
     },
     "allowSyntheticDefaultImports": true,
     "incremental": false
