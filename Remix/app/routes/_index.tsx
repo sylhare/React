@@ -15,7 +15,8 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export default function Index() {
+// Needs the export default or the page won't render
+export default function HomePage() {
   const loaderData = useLoaderData<typeof loader>();
   const [notes, setNotes] = useState([
     {
