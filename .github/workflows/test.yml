@@ -15,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        directory: ['app-misc', 'chakra-ui', 'dnd', 'router']
+        directory: ['app-misc', 'chakra-ui', 'dnd', 'router', 'remix']
         # Add more directories as needed
 
     steps:
