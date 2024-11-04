@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 //import useBoolean from './../../hooks/useBoolean';
 import { Box, Button, Text } from '@chakra-ui/react';
 import useBoolean from '@_hooks/useBoolean';
+import { Generic, Strategy } from '@_components/tutorial/hello/Example';
 
 
 export const Mess = () => {
@@ -19,6 +20,7 @@ export const Mess = () => {
 
   return (
     <Box>
+      <Generic strategy={Strategy.EXAMPLE} />
       <Text pb={2}>The toggle is <Box as="span" fontWeight={'semibold'}>{isToggled ? 'ON 💡' : 'OFF 💤'}</Box></Text>
       <Button m={1} variant={'solid'} onClick={turnOn}>Turn ON</Button>
       <Button m={1} variant={'outline'} onClick={setFalse}>Turn Off</Button>
