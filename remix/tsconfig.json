@@ -16,13 +16,16 @@
     "types": [
       "@remix-run/node",
       "vite/client",
+      "vitest",
+      "vitest/globals",
+      "vitest/importMeta",
       "@testing-library/jest-dom"
     ],
     "isolatedModules": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
     "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "target": "ES2022",
     "strict": true,
