@@ -1,6 +1,6 @@
-import type { MetaFunction } from '@remix-run/node';
-import { useLoaderData } from '@remix-run/react';
 import { useState } from 'react';
+import type { MetaFunction } from '@remix-run/node';
+import { Link, useLoaderData } from '@remix-run/react';
 
 export async function loader() {
   return {
@@ -28,6 +28,9 @@ export default function HomePage() {
   return (
     <main className="container">
       <h1>Welcome to Remix</h1>
+      <div style={{ display: 'flex', gap: '10px' }}>
+        <Link to="/about">about</Link>
+      </div>
       <p>{loaderData.message}</p>
       <button
         onClick={() =>
