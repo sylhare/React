@@ -30,6 +30,7 @@ export default function HomePage() {
       <h1>Welcome to Remix</h1>
       <div style={{ display: 'flex', gap: '10px' }}>
         <Link to="/about">about</Link>
+        <Link to="/form">form</Link>
       </div>
       <p>{loaderData.message}</p>
       <button
