@@ -31,6 +31,7 @@ export default function HomePage() {
       <div style={{ display: 'flex', gap: '10px' }}>
         <Link to="/about">about</Link>
         <Link to="/form">form</Link>
+        <Link to="/radix">radix</Link>
       </div>
       <p>{loaderData.message}</p>
       <button
