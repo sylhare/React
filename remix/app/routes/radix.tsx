@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Checkbox, Container, Flex, Switch, Text, Theme } from '@radix-ui/themes';
 import { CompanyCard } from '~/radix/CompanyCard';
+import { FileUpload } from '~/radix/FileUpload';
 
 export default function RadixPage(): React.JSX.Element {
   return (
@@ -25,6 +26,7 @@ export default function RadixPage(): React.JSX.Element {
               <Switch defaultChecked disabled/>
             </Flex>
             <CompanyCard/>
+            <FileUpload/>
           </Flex>
         </Container>
       </Theme>
