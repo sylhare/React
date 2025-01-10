@@ -55,6 +55,7 @@ module.exports = {
         'import/no-named-as-default': 0,
         'import/namespace': 0,
         'react/jsx-key': 'error',
+        'react/jsx-tag-spacing': ['error', { 'beforeSelfClosing': 'always' }],
         'react-hooks/rules-of-hooks': 'warn', // Checks rules of Hooks
         'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
         'prefer-rest-params': 'warn',
