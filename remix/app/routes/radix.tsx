@@ -9,24 +9,9 @@ export default function RadixPage(): React.JSX.Element {
       <Theme accentColor="crimson" grayColor="sand" radius="large" scaling="95%">
         <Container style={{ backgroundColor: 'var(--gray-1)', marginTop: '20px' }}>
           <Flex direction="column" align="center" gap="9">
-            <Flex direction="column" gap="2" align="center">
-              <Text>Hello from Radix Themes</Text>
-              <Button variant="soft" size="2">Click</Button>
-            </Flex>
-            <Flex align="center" gap="4" wrap="wrap">
-              <Flex align="center" gap="3" wrap="wrap">
-                <Button radius="full">Button</Button>
-                <Button asChild>
-                </Button>
-                <Button disabled>Disabled</Button>
-              </Flex>
-              <Button variant="ghost">Ghost button</Button>
-              <Checkbox defaultChecked/>
-              <Switch defaultChecked/>
-              <Switch defaultChecked disabled/>
-            </Flex>
             <CompanyCard/>
             <FileUpload/>
+            <PrimitivesDemo />
           </Flex>
         </Container>
       </Theme>
