@@ -1,0 +1,20 @@
+.drop-zone {
+  width: 300px;
+  height: 200px;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.drop-zone.dragging {
+  border-color: #000;
+}
+
+.drop-zone input[type="file"] {
+  display: none;
+}
