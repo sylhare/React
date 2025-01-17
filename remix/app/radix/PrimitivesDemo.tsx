@@ -18,7 +18,7 @@ export const PrimitivesDemo = (): React.JSX.Element => {
           <Button variant="ghost">Ghost button</Button>
         </Flex>
         <Flex gap="3">
-          <Checkbox defaultChecked s />
+          <Checkbox defaultChecked />
           <Switch defaultChecked />
           <Switch defaultChecked disabled />
         </Flex>
