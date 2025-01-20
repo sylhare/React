@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Container, Flex, Theme } from '@radix-ui/themes';
 import { CompanyCard } from '~/radix/CompanyCard';
-import { FileUpload } from '~/radix/FileUpload';
-import { FormDemo } from '~/radix/FormDemo';
+import { FileUpload } from '~/radix/FileUpload/FileUpload';
+import { FormDemo } from '~/radix/Form/FormDemo';
 import { SelectDemo } from '~/radix/SelectDemo';
 import { PrimitivesDemo } from '~/radix/PrimitivesDemo';
 import { ContextMenuDemo } from '~/radix/ContextMenuDemo';

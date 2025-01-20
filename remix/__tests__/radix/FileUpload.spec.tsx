@@ -1,7 +1,7 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { describe, it, expect, vi, Mock, beforeEach } from 'vitest';
-import { FileUpload } from '~/radix/FileUpload';
+import { FileUpload } from '~/radix/FileUpload/FileUpload';
 
 global.fetch = vi.fn(() =>
   Promise.resolve({
