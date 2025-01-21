@@ -1,0 +1,100 @@
+@import "@radix-ui/colors/black-alpha.css";
+@import "@radix-ui/colors/violet.css";
+@import "@radix-ui/colors/mauve.css";
+
+/* reset */
+input,
+textarea,
+button {
+    all: unset;
+    box-sizing: border-box;
+}
+
+.FormRoot {
+    width: 260px;
+}
+
+.FormField {
+    display: grid;
+    margin-bottom: 10px;
+}
+
+.FormLabel {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 35px;
+    color: var(--black-a9);
+}
+
+.FormMessage {
+    font-size: 13px;
+    color: var(--red-9);
+    opacity: 1;
+}
+
+.Input[data-invalid] {
+    box-shadow: 0 0 0 1px var(--red-a9);
+    opacity: 1;
+}
+
+.Input,
+.Textarea {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 15px;
+    color: var(--gray-12);
+    background-color: var(--white-a1);
+    box-shadow: 0 0 0 1px var(--black-a6);
+}
+
+.Input:focus,
+.Textarea:focus {
+    box-shadow: 0 0 0 2px var(--focus-8);
+}
+
+.Input::selection,
+.Textarea::selection {
+    background-color: var(--black-a6);
+    color: var(--accent-9);
+}
+
+.Input {
+    padding: 0 10px;
+    height: var(--space-6);
+    line-height: 1;
+    box-shadow: 0 0 0 1px var(--gray-7);
+}
+
+
+
+.Textarea {
+    resize: none;
+    padding: 10px;
+}
+
+.Button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    padding: 0 15px;
+    font-size: 15px;
+    line-height: 1;
+    font-weight: 500;
+    height: 35px;
+    width: 100%;
+    background-color: var(--accent-9);
+    color: var(--accent-11);
+    box-shadow: 0 2px 10px var(--black-a4);
+}
+
+.Button:hover {
+    background-color: var(--accent-3);
+}
+
+.Button:focus {
+    box-shadow: 0 0 0 2px black;
+}
