@@ -59,9 +59,16 @@ export function FormDemo() {
             <Form.Message className="FormMessage" match="valueMissing">
               Please enter a password.
             </Form.Message>
-            <Form.Message className="FormMessage" match={() => serverErrors.password} forceMatch={serverErrors.password}>
-              Please provide a valid password. It should contain at least 1 number and 1 special character.
+            {/* Method to show custom error message */}
+            <Form.Message className="FormMessage" match={(_value, _formData) => serverErrors.password} forceMatch={serverErrors.password}>
+              Please provide a valid password.
             </Form.Message>
+            {/* Using the serverErrors.password to show the error, the data-invalid will be passed*/}
+            {serverErrors.password && (
+              <Form.Message className="FormMessage">
+                It should contain at least 1 number and 1 special character.
+              </Form.Message>
+            )}
           </Flex>
         </Flex>
       </Form.Field>
