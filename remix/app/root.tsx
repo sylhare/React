@@ -3,7 +3,7 @@ import { Links, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/reac
 import '@radix-ui/themes/styles.css';
 import { Theme } from '@radix-ui/themes';
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export default function App() {
   return (
     <html lang="en" data-theme="light">
     <head>
@@ -14,19 +14,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
     </head>
     <body>
       <Theme>
-        {children}
+        <Outlet />
       </Theme>
       <ScrollRestoration />
       <Scripts />
     </body>
     </html>
-  );
-}
-
-export default function App() {
-  return (
-    <Layout>
-      <Outlet />
-    </Layout>
   );
 }
