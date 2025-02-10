@@ -7,17 +7,18 @@ export default function App() {
   return (
     <html lang="en" data-theme="light">
     <head>
-      <meta charSet="utf-8" />
+      <meta charSet="utf-8"/>
       <meta name="viewport" content="width=device-width, initial-scale=1"/>
-      <Meta />
-      <Links />
+      <Meta/>
+      <Links/>
+      <style>{`body { margin: 0; }`}</style>
     </head>
     <body>
       <Theme>
-        <Outlet />
+        <Outlet/>
       </Theme>
-      <ScrollRestoration />
-      <Scripts />
+      <ScrollRestoration/>
+      <Scripts/>
     </body>
     </html>
   );

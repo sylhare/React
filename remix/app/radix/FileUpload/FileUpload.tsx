@@ -44,19 +44,18 @@ export function FileUpload() {
       fetch('/upload', {
         method: 'POST',
         body: formData,
-      })
-        .then(response => response.json())
-        .then(data => {
-          console.log('File uploaded successfully:', data);
-        })
-        .catch(error => {
-          console.error('Error uploading file:', error);
-        });
+      }).then(response => response.json()).then(data => {
+        console.log('File uploaded successfully:', data);
+      }).catch(error => {
+        console.error('Error uploading file:', error);
+      });
     }
   };
 
   const handleClick = () => {
-    fileInputRef.current?.click();
+    if (!file) {
+      fileInputRef.current?.click();
+    }
   };
 
   return (
@@ -64,10 +63,10 @@ export function FileUpload() {
       <Flex direction="column" align="center" gap="3">
         <Text>Select a file to upload:</Text>
         <Flex
-          className={`drop-zone ${isDragging ? 'dragging' : ''}`}
-          onDrop={handleDrop}
-          onDragOver={handleDragOver}
-          onDragLeave={handleDragLeave}
+          className={`drop-zone ${isDragging ? 'dragging' : ''} ${file ? 'disabled' : ''}`}
+          onDrop={file ? undefined : handleDrop}
+          onDragOver={file ? undefined : handleDragOver}
+          onDragLeave={file ? undefined : handleDragLeave}
           onClick={handleClick}
           direction={'column'}
           gap={'4'}
@@ -84,7 +83,7 @@ export function FileUpload() {
 
           {file && (
             <Button variant="ghost" size="2" onClick={handleRemoveFile}>
-                Remove
+              Remove
             </Button>
           )}
         </Flex>
