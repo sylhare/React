@@ -1,12 +1,12 @@
 import React from 'react';
 import { Button, Checkbox, Flex, Heading, Switch, Text, TextField } from '@radix-ui/themes';
-import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
+import { MagnifyingGlassIcon, ThickArrowUpIcon } from '@radix-ui/react-icons';
 
 // Primitives: https://www.radix-ui.com/themes/docs/components/
 export const PrimitivesDemo = (): React.JSX.Element => {
   return (
     <>
-      <Flex direction="column" gap="2" align="center">
+      <Flex direction="column" gap="2" align="center" style={{ marginTop: '20px' }}>
         <Text>Hello from Radix Themes</Text>
 
       </Flex>
@@ -31,7 +31,7 @@ export const PrimitivesDemo = (): React.JSX.Element => {
             <MagnifyingGlassIcon height="16" width="16" />
           </TextField.Slot>
         </TextField.Root>
-        <Button size="2">Submit</Button>
+        <Button size="2" style={{ cursor: 'pointer' }}>Submit<ThickArrowUpIcon /></Button>
       </Flex>
     </>
   );
