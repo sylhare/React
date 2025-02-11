@@ -1,10 +1,11 @@
 import React from 'react';
 import { ActionFunction, json, LoaderFunction, MetaFunction } from '@remix-run/node';
 import { Form, useActionData, useLoaderData } from '@remix-run/react';
+import { Button, Container } from '~/components/styles';
 
 export const loader: LoaderFunction = async () => {
-  return json({ message: 'Hello, world!' })
-}
+  return json({ message: 'Hello, world!' });
+};
 
 export const meta: MetaFunction = () => {
   return [
@@ -26,33 +27,29 @@ export default function AboutPage(): React.ReactElement {
   const actionData = useActionData<{ success: boolean; name: string; email: string; message: string }>();
 
   return (
-    <main className="container">
-      <div>
-        <h1>About Us</h1>
+    <main className="container" style={{ padding: '20px' }}>
+      <Container>
+        <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>About Us</h1>
         <p>{data.message}</p>
-        <h2>Leave us a comment</h2>
+        <h2 style={{ marginTop: '20px' }}>Leave us a comment</h2>
         <Comment />
         {actionData && actionData.success && (
-          <div>
+          <div style={{ marginTop: '20px', padding: '10px', backgroundColor: '#e0ffe0', borderRadius: '4px' }}>
             <p>Form Submission Successful for <b>{actionData.name}</b></p>
           </div>
         )}
-      </div>
+      </Container>
     </main>
   );
 }
 
 export const Comment: React.FC = () => {
   return (
-    <>
-      <Form method="post">
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <label>Name: <input type="text" name="name" required /></label>
-          <label>Email: <input type="email" name="email" required /></label>
-          <label>Message: <textarea name="message" required></textarea></label>
-        </div>
-        <button type="submit">Submit</button>
-      </Form>
-    </>
+    <Form method="post" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+      <label>Name: <input type="text" name="name" required style={{ padding: '10px', borderRadius: '4px', border: '1px solid #ccc' }} /></label>
+      <label>Email: <input type="email" name="email" required style={{ padding: '10px', borderRadius: '4px', border: '1px solid #ccc' }} /></label>
+      <label>Message: <textarea name="message" required style={{ padding: '10px', borderRadius: '4px', border: '1px solid #ccc' }}></textarea></label>
+      <Button type="submit">Submit</Button>
+    </Form>
   );
-}
+};
