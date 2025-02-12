@@ -3,6 +3,8 @@ import { ActionFunctionArgs, json } from '@remix-run/node';
 import { Form, useActionData, useLoaderData } from '@remix-run/react';
 import { addTodo, clearTodos, getTodos, Todo } from '~/tasks/todo';
 import { useEffect, useRef } from 'react';
+import { Button, Container } from '~/components/styles';
+import { Notes } from '~/components/Notes';
 
 export async function loader() {
   return json({ todos: getTodos() });
@@ -44,23 +46,26 @@ export default function FormPage() {
   }, [actionData]);
 
   return (
-    <main className="container">
-      <div className="max-w-md">
-        <h1 className="text-2xl pb-10">Todos</h1>
-        <Form method="post" className="flex flex-col gap-4">
-          <label htmlFor="todo">Title</label>
-          <input type="text" name="todo" id="todo" autoComplete="off" ref={inputRef}/>
-          <button name="intent" value="add">Add</button>
-          <button name="intent" value="clear">Clear</button>
+    <main style={{ padding: '20px' }}>
+      <Container>
+        <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>Todos</h1>
+        <Form method="post"
+              style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          <label htmlFor="todo" style={{ fontWeight: 'bold' }}>Title</label>
+          <input type="text" name="todo" id="todo" autoComplete="off" ref={inputRef}
+                 style={{ padding: '10px', borderRadius: '4px', border: '1px solid #ccc' }} />
+          <Button name="intent" value="add">Add</Button>
+          <Button name="intent" value="clear">Clear</Button>
         </Form>
-        <ul>
+        <ul style={{ marginTop: '20px' }}>
           {todos.map((todo: Todo) => (
-            <li key={todo.id} className="text-lg pt-5">
+            <li key={todo.id} style={{ padding: '10px', borderBottom: '1px solid #eee' }}>
               {todo.text}
             </li>
           ))}
         </ul>
-      </div>
+      </Container>
+      <Notes />
     </main>
   );
 }
