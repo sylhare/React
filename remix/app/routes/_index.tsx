@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import type { MetaFunction } from '@remix-run/node';
-import { Link, useLoaderData } from '@remix-run/react';
+import { useLoaderData } from '@remix-run/react';
+import { Container, StyledLink } from '~/components/styles';
 
 export async function loader() {
   return {
@@ -18,40 +18,16 @@ export const meta: MetaFunction = () => {
 // Needs the export default or the page won't render
 export default function HomePage() {
   const loaderData = useLoaderData<typeof loader>();
-  const [notes, setNotes] = useState([
-    {
-      id: 1,
-      text: 'This is a note',
-    },
-  ]);
 
   return (
-    <main className="container">
-      <h1>Welcome to Remix</h1>
-      <div style={{ display: 'flex', gap: '10px' }}>
-        <Link to="/about">about</Link>
-        <Link to="/form">form</Link>
-        <Link to="/radix">radix</Link>
+    <Container className="container">
+      <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>Welcome to Remix</h1>
+      <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', marginBottom: '20px' }}>
+        <StyledLink to="/about">about</StyledLink>
+        <StyledLink to="/form">form</StyledLink>
+        <StyledLink to="/radix">radix</StyledLink>
       </div>
       <p>{loaderData.message}</p>
-      <button
-        onClick={() =>
-          setNotes([
-            ...notes,
-            {
-              id: notes.length + 1,
-              text: `Note ${notes.length + 1}`,
-            },
-          ])
-        }
-      >
-        Create a Note
-      </button>
-      <ul>
-        {notes.map((note) => {
-          return <li key={note.id}>{note.text}</li>;
-        })}
-      </ul>
-    </main>
+    </Container>
   );
 }
