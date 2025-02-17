@@ -7,7 +7,7 @@ import { Notes } from '~/components/Notes';
 import { act } from 'react';
 
 describe('Home Page', () => {
-  const user = userEvent.setup();
+
   const RemixStub = createRemixStub([
     {
       path: '/',
@@ -28,6 +28,7 @@ describe('Home Page', () => {
   });
 
   describe('Noes List', () => {
+    const user = userEvent.setup();
 
     it('should create a new note when click the button', async () => {
       render(<Notes />);
