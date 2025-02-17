@@ -14,7 +14,7 @@ describe('FormPage', () => {
   ]);
 
   beforeEach(async () => {
-    render(<RemixStub initialEntries={['/']}/>);
+    render(<RemixStub initialEntries={['/']} />);
     await waitFor(() => screen.getByText(/todos/i));
   });
 
@@ -27,8 +27,7 @@ describe('FormPage', () => {
 
     await waitFor(() => {
       expect(input).toHaveValue('');
-      const todos = screen.getAllByRole('listitem');
-      expect(todos).toContainEqual(expect.objectContaining({ textContent: 'New Todo' }));
+      expect(screen.queryAllByTestId('todo')).toContainEqual(expect.objectContaining({ textContent: 'New Todo' }));
     });
   });
 
@@ -37,9 +36,6 @@ describe('FormPage', () => {
 
     fireEvent.click(clearButton);
 
-    await waitFor(() => {
-      const todos = screen.queryAllByRole('listitem');
-      expect(todos).toHaveLength(0);
-    });
+    await waitFor(() => expect(screen.queryAllByTestId('todo')).toHaveLength(0));
   });
 });
