@@ -59,7 +59,7 @@ export default function FormPage() {
         </Form>
         <ul style={{ marginTop: '20px' }}>
           {todos.map((todo: Todo) => (
-            <li key={todo.id} style={{ padding: '10px', borderBottom: '1px solid #eee' }}>
+            <li key={todo.id} data-testid="todo" style={{ padding: '10px', borderBottom: '1px solid #eee' }}>
               {todo.text}
             </li>
           ))}
