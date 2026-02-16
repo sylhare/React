@@ -3,6 +3,12 @@
 import { T, useLocale } from '@transifex/react';
 import Link from 'next/link';
 import React, { useState } from 'react';
+import {
+  ActionButton,
+  GreetingCard,
+  NotificationBadge,
+  ProductCard,
+} from './components';
 
 export default function TransifexExample() {
   const locale = useLocale();
@@ -107,6 +113,64 @@ export default function TransifexExample() {
               <p className="text-lg">
                 <T _str="You have {count} notification" count={count} />
               </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Reusable Components */}
+        <div className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6">
+          <h2 className="text-xl font-semibold mb-4">
+            Reusable Components with Transifex
+          </h2>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
+            These are reusable components that use Transifex internally. See{' '}
+            <code className="bg-gray-100 dark:bg-gray-900 px-1 rounded">
+              app/transifex/components.tsx
+            </code>
+          </p>
+
+          <div className="space-y-6">
+            {/* Greeting Card Example */}
+            <div>
+              <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wide">
+                Greeting Card Component
+              </p>
+              <GreetingCard name="Maria" />
+            </div>
+
+            {/* Notification Badge Example */}
+            <div>
+              <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wide">
+                Notification Badge Component
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <NotificationBadge count={1} />
+                <NotificationBadge count={5} />
+                <NotificationBadge count={count} />
+              </div>
+            </div>
+
+            {/* Action Buttons Example */}
+            <div>
+              <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wide">
+                Action Button Component
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <ActionButton action="Read" />
+                <ActionButton action="Close" />
+                <ActionButton action="Present" />
+              </div>
+            </div>
+
+            {/* Product Card Example */}
+            <div>
+              <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wide">
+                Product Card Component
+              </p>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <ProductCard item="laptop" price="999.99" inStock={true} />
+                <ProductCard item="phone" price="599.99" inStock={false} />
+              </div>
             </div>
           </div>
         </div>

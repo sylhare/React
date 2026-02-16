@@ -44,6 +44,8 @@ tx.init({
       'Hello, welcome to our application!': 'Bonjour, bienvenue dans notre application!',
       'This text will change based on the selected language.': 'Ce texte changera en fonction de la langue sélectionnée.',
       'You have {count} new message': 'Vous avez {count} nouveau message | Vous avez {count} nouveaux messages',
+      'In Stock': 'En Stock',
+      'Out of Stock': 'Rupture de Stock',
     },
   }),
 });
