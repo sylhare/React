@@ -3,12 +3,6 @@
 import { T, useLocale } from '@transifex/react';
 import Link from 'next/link';
 import React, { useState } from 'react';
-import {
-  ActionButton,
-  GreetingCard,
-  NotificationBadge,
-  ProductCard,
-} from './components';
 
 export default function TransifexExample() {
   const locale = useLocale();
@@ -117,62 +111,117 @@ export default function TransifexExample() {
           </div>
         </div>
 
-        {/* Reusable Components */}
-        <div className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6">
-          <h2 className="text-xl font-semibold mb-4">
-            Reusable Components with Transifex
-          </h2>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
-            These are reusable components that use Transifex internally. See{' '}
-            <code className="bg-gray-100 dark:bg-gray-900 px-1 rounded">
-              app/transifex/components.tsx
-            </code>
-          </p>
+      </div>
 
-          <div className="space-y-6">
-            {/* Greeting Card Example */}
-            <div>
-              <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wide">
-                Greeting Card Component
-              </p>
-              <GreetingCard name="Maria" />
-            </div>
-
-            {/* Notification Badge Example */}
-            <div>
-              <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wide">
-                Notification Badge Component
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <NotificationBadge count={1} />
-                <NotificationBadge count={5} />
-                <NotificationBadge count={count} />
+      {/* Advanced Examples */}
+      <div className="mt-12">
+        <h2 className="text-2xl font-semibold mb-6">Advanced Examples</h2>
+        <div className="grid gap-6 md:grid-cols-2">
+          {/* Reusable Components Card */}
+          <Link
+            href="/transifex/components-example"
+            className="group rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 shadow-sm hover:shadow-lg hover:border-blue-500 dark:hover:border-blue-500 transition-all"
+          >
+            <div className="flex items-start justify-between mb-4">
+              <div className="rounded-lg bg-green-100 dark:bg-green-900/30 p-3">
+                <svg
+                  className="h-6 w-6 text-green-600 dark:text-green-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                  />
+                </svg>
               </div>
+              <svg
+                className="h-5 w-5 text-gray-400 group-hover:text-blue-500 transition-colors"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
             </div>
+            <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">
+              Reusable Components
+            </h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              Learn how to create reusable React components with Transifex
+              translations. Includes greeting cards, notification badges, action
+              buttons, and product cards.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <span className="rounded-full bg-green-100 dark:bg-green-900/30 px-3 py-1 text-xs font-medium text-green-700 dark:text-green-300">
+                Components
+              </span>
+              <span className="rounded-full bg-blue-100 dark:bg-blue-900/30 px-3 py-1 text-xs font-medium text-blue-700 dark:text-blue-300">
+                Reusable
+              </span>
+            </div>
+          </Link>
 
-            {/* Action Buttons Example */}
-            <div>
-              <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wide">
-                Action Button Component
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <ActionButton action="Read" />
-                <ActionButton action="Close" />
-                <ActionButton action="Present" />
+          {/* Context & Comments Card */}
+          <Link
+            href="/transifex/context-example"
+            className="group rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 shadow-sm hover:shadow-lg hover:border-purple-500 dark:hover:border-purple-500 transition-all"
+          >
+            <div className="flex items-start justify-between mb-4">
+              <div className="rounded-lg bg-purple-100 dark:bg-purple-900/30 p-3">
+                <svg
+                  className="h-6 w-6 text-purple-600 dark:text-purple-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+                  />
+                </svg>
               </div>
+              <svg
+                className="h-5 w-5 text-gray-400 group-hover:text-purple-500 transition-colors"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
             </div>
-
-            {/* Product Card Example */}
-            <div>
-              <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wide">
-                Product Card Component
-              </p>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <ProductCard item="laptop" price="999.99" inStock={true} />
-                <ProductCard item="phone" price="599.99" inStock={false} />
-              </div>
+            <h3 className="text-xl font-semibold mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400">
+              Context & Comments
+            </h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              Master the use of _context and _comment attributes to disambiguate
+              translations and provide guidance to translators. See how to organize
+              translations in static objects.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <span className="rounded-full bg-purple-100 dark:bg-purple-900/30 px-3 py-1 text-xs font-medium text-purple-700 dark:text-purple-300">
+                _context
+              </span>
+              <span className="rounded-full bg-pink-100 dark:bg-pink-900/30 px-3 py-1 text-xs font-medium text-pink-700 dark:text-pink-300">
+                _comment
+              </span>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
 
