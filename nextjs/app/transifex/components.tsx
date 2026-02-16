@@ -1,9 +1,10 @@
 import { T } from '@transifex/react';
+import './styles.css';
 
 // Example 1: Simple Greeting Card Component
 export function GreetingCard({ name }: { name: string }) {
   return (
-    <div className="rounded-lg border-2 border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/20 p-4">
+    <div className="greeting-card">
       <h3 className="text-lg font-semibold mb-2">
         <T _str="Hello, {username}!" username={name} />
       </h3>
@@ -17,12 +18,12 @@ export function GreetingCard({ name }: { name: string }) {
 // Example 2: Notification Badge Component
 export function NotificationBadge({ count }: { count: number }) {
   return (
-    <div className="inline-flex items-center gap-2 rounded-full bg-red-100 dark:bg-red-900/30 px-4 py-2">
+    <div className="notification-badge">
       <span className="relative flex h-3 w-3">
         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
         <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
       </span>
-      <span className="text-sm font-medium text-red-900 dark:text-red-100">
+      <span className="notification-badge-text">
         <T _str="You have {count} notification" count={count} />
       </span>
     </div>
@@ -37,17 +38,14 @@ export function ActionButton({
   action: 'Read' | 'Close' | 'Present';
   onClick?: () => void;
 }) {
-  const buttonStyles: Record<typeof action, string> = {
-    Read: 'bg-green-600 hover:bg-green-700 text-white',
-    Close: 'bg-gray-600 hover:bg-gray-700 text-white',
-    Present: 'bg-purple-600 hover:bg-purple-700 text-white',
-  };
+  const buttonClass = {
+    Read: 'btn-action-read',
+    Close: 'btn-action-close',
+    Present: 'btn-action-present',
+  }[action];
 
   return (
-    <button
-      onClick={onClick}
-      className={`rounded-md px-4 py-2 text-sm font-medium transition-colors ${buttonStyles[action]}`}
-    >
+    <button onClick={onClick} className={buttonClass}>
       <T _str={action} />
     </button>
   );
@@ -64,19 +62,17 @@ export function ProductCard({
   inStock: boolean;
 }) {
   return (
-    <div className="rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 p-4 shadow-sm">
-      <div className="mb-3">
-        <p className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-          <T _str="The {item} costs ${price}" item={item} price={price} />
-        </p>
+    <div className="product-card">
+      <div className="product-card-header">
+        <T _str="The {item} costs ${price}" item={item} price={price} />
       </div>
-      <div className="flex items-center justify-between">
+      <div className="product-card-footer">
         {inStock ? (
-          <span className="text-xs font-medium text-green-600 dark:text-green-400">
+          <span className="stock-badge in-stock">
             <T _str="In Stock" />
           </span>
         ) : (
-          <span className="text-xs font-medium text-red-600 dark:text-red-400">
+          <span className="stock-badge out-of-stock">
             <T _str="Out of Stock" />
           </span>
         )}
