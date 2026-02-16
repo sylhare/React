@@ -52,3 +52,5 @@ Temporary Items
 **/coverage/
 */build
 */dist
+**/test-results
+**/playwright-report
