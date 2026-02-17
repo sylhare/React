@@ -21,6 +21,9 @@ export default function TransifexExamplesPage() {
         <Link href="/transifex/context-example" className="btn-primary">
           Context & Comments
         </Link>
+        <Link href="/transifex/string-props-example" className="btn-primary">
+          String Props
+        </Link>
       </div>
 
       <Link href="/" className="link">
