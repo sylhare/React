@@ -1,5 +1,5 @@
 import { T } from '@transifex/react';
-import { KEYS } from './translationKeys';
+import { KEYS } from '../shared/translationKeys';
 
 export const COMMON = {
   post: {

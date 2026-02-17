@@ -1,28 +1,32 @@
 import { T } from '@transifex/react';
-import { KEYS } from './translationKeys';
-import './styles.css';
+import { KEYS } from '../shared/translationKeys';
+import '../styles.css';
 
-// Example 1: Simple Greeting Card Component
+/**
+ * Simple greeting card component with user name
+ */
 export function GreetingCard({ name }: { name: string }) {
   return (
     <div className="greeting-card">
-      <h3 className="text-lg font-semibold mb-2">
+      <h3 className="greeting-card-title">
         <T _str={KEYS.HELLO_USERNAME} username={name} />
       </h3>
-      <p className="text-sm">
+      <p className="greeting-card-text">
         <T _str={KEYS.WELCOME_BACK_USERNAME} username={name} />
       </p>
     </div>
   );
 }
 
-// Example 2: Notification Badge Component
+/**
+ * Notification badge with animated indicator
+ */
 export function NotificationBadge({ count }: { count: number }) {
   return (
     <div className="notification-badge">
-      <span className="relative flex h-3 w-3">
-        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-        <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+      <span className="notification-indicator">
+        <span className="notification-ping"></span>
+        <span className="notification-dot"></span>
       </span>
       <span className="notification-badge-text">
         <T _str={KEYS.COUNT_NOTIFICATION} count={count} />
@@ -31,7 +35,9 @@ export function NotificationBadge({ count }: { count: number }) {
   );
 }
 
-// Example 3: Action Button Component
+/**
+ * Action button with translated label
+ */
 export function ActionButton({
   action,
   onClick,
@@ -54,7 +60,9 @@ export function ActionButton({
   );
 }
 
-// Example 4: Product Card Component
+/**
+ * Product card with price and stock status
+ */
 export function ProductCard({
   item,
   price,
