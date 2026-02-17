@@ -356,6 +356,170 @@ test.describe('Transifex Examples', () => {
     });
   });
 
+  test.describe('String Props Page', () => {
+    test('should load the string props example page', async ({ page }) => {
+      await page.goto('/transifex/string-props-example');
+      await expect(page.locator('h1')).toContainText('String Props Example');
+    });
+
+    test('should display search input with translated placeholder', async ({
+      page,
+    }) => {
+      await page.goto('/transifex/string-props-example');
+      const searchInput = page.locator('input[placeholder="Search..."]');
+      await expect(searchInput).toBeVisible();
+      await expect(searchInput).toHaveAttribute('placeholder', 'Search...');
+      await expect(searchInput).toHaveAttribute('aria-label', 'Search');
+    });
+
+    test('should display button with translated tooltip', async ({ page }) => {
+      await page.goto('/transifex/string-props-example');
+      const saveButton = page.locator('button[title="Click to save"]');
+      await expect(saveButton).toBeVisible();
+      await expect(saveButton).toHaveAttribute('title', 'Click to save');
+      await expect(saveButton).toContainText('Save');
+    });
+
+    test('should display contact form with translated labels and placeholders', async ({
+      page,
+    }) => {
+      await page.goto('/transifex/string-props-example');
+
+      await expect(page.getByText('Name')).toBeVisible();
+      const nameInput = page.locator('input[placeholder="Enter your name"]');
+      await expect(nameInput).toBeVisible();
+
+      await expect(page.getByText('Email')).toBeVisible();
+      const emailInput = page.locator('input[placeholder="your@email.com"]');
+      await expect(emailInput).toBeVisible();
+
+      await expect(page.getByRole('button', { name: 'Submit' })).toBeVisible();
+    });
+
+    test('should display language select with translated options', async ({
+      page,
+    }) => {
+      await page.goto('/transifex/string-props-example');
+
+      await expect(page.getByText('Select Language')).toBeVisible();
+      const select = page.locator('select#lang');
+      await expect(select).toBeVisible();
+
+      const options = select.locator('option');
+      await expect(options.nth(0)).toHaveText('English');
+      await expect(options.nth(1)).toHaveText('Spanish');
+      await expect(options.nth(2)).toHaveText('French');
+    });
+
+    test('should display alert messages', async ({ page }) => {
+      await page.goto('/transifex/string-props-example');
+
+      await expect(
+        page.getByText('Operation completed successfully!')
+      ).toBeVisible();
+      await expect(
+        page.getByText('An error occurred. Please try again.')
+      ).toBeVisible();
+      await expect(
+        page.getByText('Please review your information before proceeding.')
+      ).toBeVisible();
+    });
+
+    test('should translate string props to Spanish', async ({ page }) => {
+      await page.goto('/transifex/string-props-example');
+
+      await page.getByRole('button', { name: 'Español' }).click();
+
+      const searchInput = page.locator('input[placeholder="Buscar..."]');
+      await expect(searchInput).toBeVisible();
+      await expect(searchInput).toHaveAttribute('aria-label', 'Buscar');
+
+      const saveButton = page.locator(
+        'button[title="Haz clic para guardar"]'
+      );
+      await expect(saveButton).toBeVisible();
+      await expect(saveButton).toContainText('Guardar');
+
+      await expect(page.getByText('Nombre')).toBeVisible();
+      await expect(page.getByText('Correo electrónico')).toBeVisible();
+
+      const nameInput = page.locator('input[placeholder="Ingresa tu nombre"]');
+      await expect(nameInput).toBeVisible();
+      const emailInput = page.locator('input[placeholder="tu@correo.com"]');
+      await expect(emailInput).toBeVisible();
+
+      await expect(
+        page.getByRole('button', { name: 'Enviar' })
+      ).toBeVisible();
+
+      await expect(
+        page.getByText('¡Operación completada con éxito!')
+      ).toBeVisible();
+      await expect(
+        page.getByText('Ocurrió un error. Por favor, inténtalo de nuevo.')
+      ).toBeVisible();
+    });
+
+    test('should translate string props to French', async ({ page }) => {
+      await page.goto('/transifex/string-props-example');
+
+      await page.getByRole('button', { name: 'Français' }).click();
+
+      const searchInput = page.locator('input[placeholder="Rechercher..."]');
+      await expect(searchInput).toBeVisible();
+      await expect(searchInput).toHaveAttribute('aria-label', 'Rechercher');
+
+      const saveButton = page.locator(
+        'button[title="Cliquez pour enregistrer"]'
+      );
+      await expect(saveButton).toBeVisible();
+      await expect(saveButton).toContainText('Enregistrer');
+
+      await expect(page.getByText('Nom', { exact: true })).toBeVisible();
+      await expect(page.getByText('Email')).toBeVisible();
+
+      const nameInput = page.locator('input[placeholder="Entrez votre nom"]');
+      await expect(nameInput).toBeVisible();
+      const emailInput = page.locator('input[placeholder="votre@email.com"]');
+      await expect(emailInput).toBeVisible();
+
+      await expect(
+        page.getByRole('button', { name: 'Soumettre' })
+      ).toBeVisible();
+
+      await expect(
+        page.getByText('Opération terminée avec succès!')
+      ).toBeVisible();
+      await expect(
+        page.getByText("Une erreur s'est produite. Veuillez réessayer.")
+      ).toBeVisible();
+    });
+
+    test('should translate select options to Spanish', async ({ page }) => {
+      await page.goto('/transifex/string-props-example');
+
+      await page.getByRole('button', { name: 'Español' }).click();
+
+      const select = page.locator('select#lang');
+      const options = select.locator('option');
+      await expect(options.nth(0)).toHaveText('Inglés');
+      await expect(options.nth(1)).toHaveText('Español');
+      await expect(options.nth(2)).toHaveText('Francés');
+    });
+
+    test('should translate select options to French', async ({ page }) => {
+      await page.goto('/transifex/string-props-example');
+
+      await page.getByRole('button', { name: 'Français' }).click();
+
+      const select = page.locator('select#lang');
+      const options = select.locator('option');
+      await expect(options.nth(0)).toHaveText('Anglais');
+      await expect(options.nth(1)).toHaveText('Espagnol');
+      await expect(options.nth(2)).toHaveText('Français');
+    });
+  });
+
   test.describe('Navigation', () => {
     test('should navigate from main to components example', async ({
       page,
@@ -384,6 +548,15 @@ test.describe('Transifex Examples', () => {
       await page.goto('/transifex/basic-example');
       await page.getByRole('link', { name: /Back to Examples/ }).click();
       await expect(page).toHaveURL('/transifex');
+    });
+
+    test('should navigate from main to string props example', async ({
+      page,
+    }) => {
+      await page.goto('/transifex');
+      await page.getByRole('link', { name: /String Props/ }).click();
+      await expect(page).toHaveURL('/transifex/string-props-example');
+      await expect(page.locator('h1')).toContainText('String Props Example');
     });
   });
 });
