@@ -2,80 +2,141 @@
 
 import { tx } from '@transifex/native';
 import { TXProvider } from '@transifex/react';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
+import { KEYS } from './transifex/translationKeys';
 
-tx.init({
-  token: process.env.NEXT_PUBLIC_TRANSIFEX_TOKEN || '',
-  cache: () => ({
-    es: {
-      'Hello, World!': 'Hola, Mundo!',
-      'Welcome to Transifex': 'Bienvenido a Transifex',
-      'This is a simple translation example.': 'Este es un ejemplo simple de traducción.',
-      'Hello, {username}!': '¡Hola, {username}!',
-      'Welcome back, {username}! How are you today?': '¡Bienvenido de vuelta, {username}! ¿Cómo estás hoy?',
-      'The {item} costs ${price}': 'El {item} cuesta ${price}',
-      '{count} item': '{count} artículo | {count} artículos',
-      '{count} message': '{count} mensaje | {count} mensajes',
-      'You have {count} notification': 'Tienes {count} notificación | Tienes {count} notificaciones',
-      'Read': 'Leer',
-      'Close': 'Cerrar',
-      'Present': 'Regalo',
-      'Sample Content': 'Contenido de Ejemplo',
-      'Hello, welcome to our application!': '¡Hola, bienvenido a nuestra aplicación!',
-      'This text will change based on the selected language.': 'Este texto cambiará según el idioma seleccionado.',
-      'You have {count} new message': 'Tienes {count} mensaje nuevo | Tienes {count} mensajes nuevos',
-      'In Stock': 'En Stock',
-      'Out of Stock': 'Agotado',
-      'Post:social-media-noun': 'Publicación',
-      'Post:action-verb': 'Publicar',
-      'Like:social-action': 'Me gusta',
-      'Like:comparison': 'Como',
-      'Save:file-operation': 'Guardar',
-      'Save:bookmark-action': 'Guardar',
-      'Are you sure you want to delete this?:destructive-action':
-        '¿Estás seguro de que quieres eliminar esto?',
-      'Upgrade to Pro:subscription-cta': 'Mejorar a Pro',
-      'Loading...:ui-feedback': 'Cargando...',
-      'Welcome back, {username}:user-greeting': 'Bienvenido de nuevo, {username}',
-      'Delete:destructive-action': 'Eliminar',
-      'Cancel:dismiss-action': 'Cancelar',
-    },
-    fr: {
-      'Hello, World!': 'Bonjour le monde!',
-      'Welcome to Transifex': 'Bienvenue sur Transifex',
-      'This is a simple translation example.': 'Ceci est un exemple de traduction simple.',
-      'Hello, {username}!': 'Bonjour, {username}!',
-      'Welcome back, {username}! How are you today?': 'Bon retour, {username}! Comment allez-vous aujourd\'hui?',
-      'The {item} costs ${price}': 'Le {item} coûte ${price}',
-      '{count} item': '{count} article | {count} articles',
-      '{count} message': '{count} message | {count} messages',
-      'You have {count} notification': 'Vous avez {count} notification | Vous avez {count} notifications',
-      'Read': 'Lire',
-      'Close': 'Fermer',
-      'Present': 'Cadeau',
-      'Sample Content': 'Contenu d\'exemple',
-      'Hello, welcome to our application!': 'Bonjour, bienvenue dans notre application!',
-      'This text will change based on the selected language.': 'Ce texte changera en fonction de la langue sélectionnée.',
-      'You have {count} new message': 'Vous avez {count} nouveau message | Vous avez {count} nouveaux messages',
-      'In Stock': 'En Stock',
-      'Out of Stock': 'Rupture de Stock',
-      'Post:social-media-noun': 'Publication',
-      'Post:action-verb': 'Publier',
-      'Like:social-action': "J'aime",
-      'Like:comparison': 'Comme',
-      'Save:file-operation': 'Enregistrer',
-      'Save:bookmark-action': 'Sauvegarder',
-      'Are you sure you want to delete this?:destructive-action':
-        'Êtes-vous sûr de vouloir supprimer ceci?',
-      'Upgrade to Pro:subscription-cta': 'Passer à Pro',
-      'Loading...:ui-feedback': 'Chargement...',
-      'Welcome back, {username}:user-greeting': 'Bon retour, {username}',
-      'Delete:destructive-action': 'Supprimer',
-      'Cancel:dismiss-action': 'Annuler',
-    },
-  }),
-});
+const translations = {
+  en: {
+    [KEYS.HELLO_WORLD]: 'Hello, World!',
+    [KEYS.WELCOME_TRANSIFEX]: 'Welcome to Transifex',
+    [KEYS.SIMPLE_EXAMPLE]: 'This is a simple translation example.',
+    [KEYS.HELLO_USERNAME]: 'Hello, {username}!',
+    [KEYS.WELCOME_BACK_USERNAME]: 'Welcome back, {username}! How are you today?',
+    [KEYS.ITEM_COST]: 'The {item} costs ${price}',
+    [KEYS.COUNT_ITEM]: '{count, plural, one {# item} other {# items}}',
+    [KEYS.COUNT_MESSAGE]: '{count, plural, one {# message} other {# messages}}',
+    [KEYS.COUNT_NOTIFICATION]: '{count, plural, one {You have # notification} other {You have # notifications}}',
+    [KEYS.COUNT_NEW_MESSAGE]: '{count, plural, one {You have # new message} other {You have # new messages}}',
+    [KEYS.READ]: 'Read',
+    [KEYS.CLOSE]: 'Close',
+    [KEYS.PRESENT]: 'Present',
+    [KEYS.DELETE]: 'Delete',
+    [KEYS.CANCEL]: 'Cancel',
+    [KEYS.SAMPLE_CONTENT]: 'Sample Content',
+    [KEYS.HELLO_WELCOME]: 'Hello, welcome to our application!',
+    [KEYS.TEXT_CHANGES]: 'This text will change based on the selected language.',
+    [KEYS.IN_STOCK]: 'In Stock',
+    [KEYS.OUT_OF_STOCK]: 'Out of Stock',
+    [KEYS.POST_NOUN]: 'Post',
+    [KEYS.POST_VERB]: 'Post',
+    [KEYS.LIKE_VERB]: 'Like',
+    [KEYS.LIKE_PREPOSITION]: 'Like',
+    [KEYS.SAVE_FILE]: 'Save',
+    [KEYS.SAVE_BOOKMARK]: 'Save',
+    [KEYS.DELETE_CONFIRM]: 'Are you sure you want to delete this?',
+    [KEYS.LOADING]: 'Loading...',
+    [KEYS.WELCOME_USER]: 'Welcome back, {username}',
+    [KEYS.UPGRADE_PRO]: 'Upgrade to Pro',
+  },
+  es: {
+    [KEYS.HELLO_WORLD]: 'Hola, Mundo!',
+    [KEYS.WELCOME_TRANSIFEX]: 'Bienvenido a Transifex',
+    [KEYS.SIMPLE_EXAMPLE]: 'Este es un ejemplo simple de traducción.',
+    [KEYS.HELLO_USERNAME]: '¡Hola, {username}!',
+    [KEYS.WELCOME_BACK_USERNAME]: '¡Bienvenido de vuelta, {username}! ¿Cómo estás hoy?',
+    [KEYS.ITEM_COST]: 'El {item} cuesta ${price}',
+    [KEYS.COUNT_ITEM]: '{count, plural, one {# artículo} other {# artículos}}',
+    [KEYS.COUNT_MESSAGE]: '{count, plural, one {# mensaje} other {# mensajes}}',
+    [KEYS.COUNT_NOTIFICATION]: '{count, plural, one {Tienes # notificación} other {Tienes # notificaciones}}',
+    [KEYS.COUNT_NEW_MESSAGE]: '{count, plural, one {Tienes # mensaje nuevo} other {Tienes # mensajes nuevos}}',
+    [KEYS.READ]: 'Leer',
+    [KEYS.CLOSE]: 'Cerrar',
+    [KEYS.PRESENT]: 'Regalo',
+    [KEYS.DELETE]: 'Eliminar',
+    [KEYS.CANCEL]: 'Cancelar',
+    [KEYS.SAMPLE_CONTENT]: 'Contenido de Ejemplo',
+    [KEYS.HELLO_WELCOME]: '¡Hola, bienvenido a nuestra aplicación!',
+    [KEYS.TEXT_CHANGES]: 'Este texto cambiará según el idioma seleccionado.',
+    [KEYS.IN_STOCK]: 'En Stock',
+    [KEYS.OUT_OF_STOCK]: 'Agotado',
+    [KEYS.POST_NOUN]: 'Publicación',
+    [KEYS.POST_VERB]: 'Publicar',
+    [KEYS.LIKE_VERB]: 'Me gusta',
+    [KEYS.LIKE_PREPOSITION]: 'Como',
+    [KEYS.SAVE_FILE]: 'Guardar',
+    [KEYS.SAVE_BOOKMARK]: 'Guardar',
+    [KEYS.DELETE_CONFIRM]: '¿Estás seguro de que quieres eliminar esto?',
+    [KEYS.LOADING]: 'Cargando...',
+    [KEYS.WELCOME_USER]: 'Bienvenido de nuevo, {username}',
+    [KEYS.UPGRADE_PRO]: 'Mejorar a Pro',
+  },
+  fr: {
+    [KEYS.HELLO_WORLD]: 'Bonjour le monde!',
+    [KEYS.WELCOME_TRANSIFEX]: 'Bienvenue sur Transifex',
+    [KEYS.SIMPLE_EXAMPLE]: 'Ceci est un exemple de traduction simple.',
+    [KEYS.HELLO_USERNAME]: 'Bonjour, {username}!',
+    [KEYS.WELCOME_BACK_USERNAME]: 'Bon retour, {username}! Comment allez-vous aujourd\'hui?',
+    [KEYS.ITEM_COST]: 'Le {item} coûte ${price}',
+    [KEYS.COUNT_ITEM]: '{count, plural, one {# article} other {# articles}}',
+    [KEYS.COUNT_MESSAGE]: '{count, plural, one {# message} other {# messages}}',
+    [KEYS.COUNT_NOTIFICATION]: '{count, plural, one {Vous avez # notification} other {Vous avez # notifications}}',
+    [KEYS.COUNT_NEW_MESSAGE]: '{count, plural, one {Vous avez # nouveau message} other {Vous avez # nouveaux messages}}',
+    [KEYS.READ]: 'Lire',
+    [KEYS.CLOSE]: 'Fermer',
+    [KEYS.PRESENT]: 'Cadeau',
+    [KEYS.DELETE]: 'Supprimer',
+    [KEYS.CANCEL]: 'Annuler',
+    [KEYS.SAMPLE_CONTENT]: 'Contenu d\'exemple',
+    [KEYS.HELLO_WELCOME]: 'Bonjour, bienvenue dans notre application!',
+    [KEYS.TEXT_CHANGES]: 'Ce texte changera en fonction de la langue sélectionnée.',
+    [KEYS.IN_STOCK]: 'En Stock',
+    [KEYS.OUT_OF_STOCK]: 'Rupture de Stock',
+    [KEYS.POST_NOUN]: 'Publication',
+    [KEYS.POST_VERB]: 'Publier',
+    [KEYS.LIKE_VERB]: "J'aime",
+    [KEYS.LIKE_PREPOSITION]: 'Comme',
+    [KEYS.SAVE_FILE]: 'Enregistrer',
+    [KEYS.SAVE_BOOKMARK]: 'Sauvegarder',
+    [KEYS.DELETE_CONFIRM]: 'Êtes-vous sûr de vouloir supprimer ceci?',
+    [KEYS.LOADING]: 'Chargement...',
+    [KEYS.WELCOME_USER]: 'Bon retour, {username}',
+    [KEYS.UPGRADE_PRO]: 'Passer à Pro',
+  },
+};
+
+let txInitialized = false;
+
+function initializeTx() {
+  if (txInitialized || typeof window === 'undefined') {
+    return;
+  }
+
+  tx.init({
+    token: '',
+
+    currentLocale: 'en',
+  });
+
+  Object.entries(translations).forEach(([locale, strings]) => {
+    Object.entries(strings).forEach(([key, value]) => {
+      tx.cache.update(locale, { [key]: value });
+    });
+  });
+
+  txInitialized = true;
+}
 
 export function TransifexProvider({ children }: { children: ReactNode }) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    initializeTx();
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
   return <TXProvider tx={tx}>{children}</TXProvider>;
 }
