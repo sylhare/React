@@ -1,14 +1,20 @@
 'use client';
 
 import { T, useLocale } from '@transifex/react';
+import { tx } from '@transifex/native';
 import Link from 'next/link';
 import React, { useState } from 'react';
+import { KEYS } from './translationKeys';
 import './styles.css';
 
 export default function TransifexExample() {
   const locale = useLocale();
   const [count, setCount] = useState(1);
   const currentLocale = String(locale);
+
+  const handleLanguageChange = (langCode: string) => {
+    tx.setCurrentLocale(langCode);
+  };
 
   const languages = [
     { code: 'en', name: 'English' },
@@ -25,7 +31,7 @@ export default function TransifexExample() {
           {languages.map((lang) => (
             <button
               key={lang.code}
-              onClick={() => locale.setCurrentLocale(lang.code)}
+              onClick={() => handleLanguageChange(lang.code)}
               className={`btn-lang ${currentLocale === lang.code ? 'active' : ''}`}
             >
               {lang.name}
@@ -45,13 +51,13 @@ export default function TransifexExample() {
           <h2 className="heading-2">Basic Translation</h2>
           <div className="space-y-2">
             <p className="text-lg">
-              <T _str="Hello, World!" />
+              <T _str={KEYS.HELLO_WORLD} />
             </p>
             <p className="text-lg">
-              <T _str="Welcome to Transifex" />
+              <T _str={KEYS.WELCOME_TRANSIFEX} />
             </p>
             <p>
-              <T _str="This is a simple translation example." />
+              <T _str={KEYS.SIMPLE_EXAMPLE} />
             </p>
           </div>
         </div>
@@ -61,16 +67,13 @@ export default function TransifexExample() {
           <h2 className="heading-2">Variables</h2>
           <div className="space-y-2">
             <p className="text-lg">
-              <T _str="Hello, {username}!" username="John" />
+              <T _str={KEYS.HELLO_USERNAME} username="John" />
             </p>
             <p>
-              <T
-                _str="Welcome back, {username}! How are you today?"
-                username="Sarah"
-              />
+              <T _str={KEYS.WELCOME_BACK_USERNAME} username="Sarah" />
             </p>
             <p>
-              <T _str="The {item} costs ${price}" item="book" price="19.99" />
+              <T _str={KEYS.ITEM_COST} item="book" price="19.99" />
             </p>
           </div>
         </div>
@@ -96,13 +99,13 @@ export default function TransifexExample() {
             </div>
             <div className="space-y-2">
               <p className="text-lg">
-                <T _str="{count} item" count={count} />
+                <T _str={KEYS.COUNT_ITEM} count={count} />
               </p>
               <p className="text-lg">
-                <T _str="{count} message" count={count} />
+                <T _str={KEYS.COUNT_MESSAGE} count={count} />
               </p>
               <p className="text-lg">
-                <T _str="You have {count} notification" count={count} />
+                <T _str={KEYS.COUNT_NOTIFICATION} count={count} />
               </p>
             </div>
           </div>

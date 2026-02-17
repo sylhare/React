@@ -38,7 +38,7 @@ export function SocialMediaCard({
             <div>
               {MESSAGES.welcome(username)}
               <p className="text-xs text-gray-500 dark:text-gray-400">
-                {COMMON.post.asNoun} • 2h ago
+                {COMMON.post.asNoun()} • 2h ago
               </p>
             </div>
           </div>
@@ -68,7 +68,7 @@ export function SocialMediaCard({
             <svg className="h-5 w-5" fill={isLiked ? 'currentColor' : 'none'} stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
-            {COMMON.like.asVerb} ({likes + (isLiked ? 1 : 0)})
+            {COMMON.like.asVerb()} ({likes + (isLiked ? 1 : 0)})
           </button>
 
           <button
@@ -78,7 +78,7 @@ export function SocialMediaCard({
             <svg className="h-5 w-5" fill={isSaved ? 'currentColor' : 'none'} stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
             </svg>
-            {COMMON.save.favorite}
+            {COMMON.save.favorite()}
           </button>
         </div>
       </div>
@@ -87,11 +87,11 @@ export function SocialMediaCard({
       {showDeleteConfirm && (
         <div className="border-t border-gray-200 dark:border-gray-700 bg-red-50 dark:bg-red-900/10 p-4">
           <p className="text-sm text-red-900 dark:text-red-100 mb-3">
-            {MESSAGES.deleteConfirmation}
+            {MESSAGES.deleteConfirmation()}
           </p>
           {isLoading ? (
             <div className="flex items-center justify-center py-2">
-              {MESSAGES.loading}
+              {MESSAGES.loading()}
             </div>
           ) : (
             <div className="flex gap-2">
@@ -99,13 +99,13 @@ export function SocialMediaCard({
                 onClick={handleDelete}
                 className="flex-1 rounded-md bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700"
               >
-                {ACTIONS.delete}
+                {ACTIONS.delete()}
               </button>
               <button
                 onClick={() => setShowDeleteConfirm(false)}
                 className="flex-1 rounded-md bg-gray-200 dark:bg-gray-700 px-4 py-2 text-sm font-medium hover:bg-gray-300 dark:hover:bg-gray-600"
               >
-                {ACTIONS.cancel}
+                {ACTIONS.cancel()}
               </button>
             </div>
           )}
@@ -119,7 +119,7 @@ export function SocialMediaCard({
             Get more features with Pro
           </p>
           <button className="rounded-md bg-gradient-to-r from-purple-600 to-blue-600 px-4 py-1.5 text-sm font-medium text-white hover:from-purple-700 hover:to-blue-700">
-            {CTA.upgradeToPro}
+            {CTA.upgradeToPro()}
           </button>
         </div>
       </div>
@@ -131,10 +131,10 @@ export function SocialMediaCard({
         </p>
         <div className="flex gap-2">
           <button className="rounded bg-blue-600 px-3 py-1 text-xs text-white hover:bg-blue-700">
-            {COMMON.post.asVerb}
+            {COMMON.post.asVerb()}
           </button>
           <button className="rounded bg-green-600 px-3 py-1 text-xs text-white hover:bg-green-700">
-            {COMMON.save.file}
+            {COMMON.save.file()}
           </button>
         </div>
       </div>

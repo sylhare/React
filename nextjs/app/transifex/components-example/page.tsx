@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { useLocale } from '@transifex/react';
+import { tx } from '@transifex/native';
 import {
   ActionButton,
   GreetingCard,
@@ -15,6 +16,10 @@ export default function ComponentsExamplePage() {
   const locale = useLocale();
   const [count, setCount] = useState(3);
   const currentLocale = String(locale);
+
+  const handleLanguageChange = (langCode: string) => {
+    tx.setCurrentLocale(langCode);
+  };
 
   const languages = [
     { code: 'en', name: 'English' },
@@ -31,7 +36,7 @@ export default function ComponentsExamplePage() {
           {languages.map((lang) => (
             <button
               key={lang.code}
-              onClick={() => locale.setCurrentLocale(lang.code)}
+              onClick={() => handleLanguageChange(lang.code)}
               className={`btn-lang ${currentLocale === lang.code ? 'active' : ''}`}
             >
               {lang.name}

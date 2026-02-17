@@ -1,4 +1,5 @@
 import { T } from '@transifex/react';
+import { KEYS } from './translationKeys';
 import './styles.css';
 
 // Example 1: Simple Greeting Card Component
@@ -6,10 +7,10 @@ export function GreetingCard({ name }: { name: string }) {
   return (
     <div className="greeting-card">
       <h3 className="text-lg font-semibold mb-2">
-        <T _str="Hello, {username}!" username={name} />
+        <T _str={KEYS.HELLO_USERNAME} username={name} />
       </h3>
       <p className="text-sm">
-        <T _str="Welcome back, {username}! How are you today?" username={name} />
+        <T _str={KEYS.WELCOME_BACK_USERNAME} username={name} />
       </p>
     </div>
   );
@@ -24,7 +25,7 @@ export function NotificationBadge({ count }: { count: number }) {
         <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
       </span>
       <span className="notification-badge-text">
-        <T _str="You have {count} notification" count={count} />
+        <T _str={KEYS.COUNT_NOTIFICATION} count={count} />
       </span>
     </div>
   );
@@ -44,9 +45,11 @@ export function ActionButton({
     Present: 'btn-action-present',
   }[action];
 
+  const actionKey = action === 'Read' ? KEYS.READ : action === 'Close' ? KEYS.CLOSE : KEYS.PRESENT;
+
   return (
     <button onClick={onClick} className={buttonClass}>
-      <T _str={action} />
+      <T _str={actionKey} />
     </button>
   );
 }
@@ -64,16 +67,16 @@ export function ProductCard({
   return (
     <div className="product-card">
       <div className="product-card-header">
-        <T _str="The {item} costs ${price}" item={item} price={price} />
+        <T _str={KEYS.ITEM_COST} item={item} price={price} />
       </div>
       <div className="product-card-footer">
         {inStock ? (
           <span className="stock-badge in-stock">
-            <T _str="In Stock" />
+            <T _str={KEYS.IN_STOCK} />
           </span>
         ) : (
           <span className="stock-badge out-of-stock">
-            <T _str="Out of Stock" />
+            <T _str={KEYS.OUT_OF_STOCK} />
           </span>
         )}
         <ActionButton action="Present" />
