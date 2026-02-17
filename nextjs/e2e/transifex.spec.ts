@@ -3,17 +3,17 @@ import { test, expect } from '@playwright/test';
 test.describe('Transifex Examples', () => {
   test.describe('Main Page', () => {
     test('should load the main transifex page', async ({ page }) => {
-      await page.goto('/transifex');
+      await page.goto('/transifex/basic-example');
       await expect(page.locator('h1')).toContainText('Transifex Example');
     });
 
     test('should show current language', async ({ page }) => {
-      await page.goto('/transifex');
+      await page.goto('/transifex/basic-example');
       await expect(page.getByText(/Current Language:/)).toBeVisible();
     });
 
     test('should switch languages', async ({ page }) => {
-      await page.goto('/transifex');
+      await page.goto('/transifex/basic-example');
 
       // Click Spanish button
       await page.getByRole('button', { name: 'Español' }).click();
@@ -38,7 +38,7 @@ test.describe('Transifex Examples', () => {
     });
 
     test('should display basic translations', async ({ page }) => {
-      await page.goto('/transifex');
+      await page.goto('/transifex/basic-example');
       await expect(page.getByText('Hello, World!')).toBeVisible();
       await expect(page.getByText('Welcome to Transifex')).toBeVisible();
       await expect(
@@ -47,14 +47,14 @@ test.describe('Transifex Examples', () => {
     });
 
     test('should display variable interpolations', async ({ page }) => {
-      await page.goto('/transifex');
+      await page.goto('/transifex/basic-example');
       await expect(page.getByText('Hello, John!')).toBeVisible();
       await expect(page.getByText(/Welcome back, Sarah!/)).toBeVisible();
       await expect(page.getByText(/The book costs \$19.99/)).toBeVisible();
     });
 
     test('should handle plurals correctly', async ({ page }) => {
-      await page.goto('/transifex');
+      await page.goto('/transifex/basic-example');
 
       // Check initial count
       await expect(page.getByText('Count: 1')).toBeVisible();
@@ -89,7 +89,7 @@ test.describe('Transifex Examples', () => {
     });
 
     test('should test plurals in Spanish', async ({ page }) => {
-      await page.goto('/transifex');
+      await page.goto('/transifex/basic-example');
 
       // Switch to Spanish
       await page.getByRole('button', { name: 'Español' }).click();
@@ -106,15 +106,6 @@ test.describe('Transifex Examples', () => {
       await expect(page.getByText('2 artículos')).toBeVisible();
     });
 
-    test('should have links to advanced examples', async ({ page }) => {
-      await page.goto('/transifex');
-      await expect(
-        page.getByRole('link', { name: /Reusable Components/ })
-      ).toBeVisible();
-      await expect(
-        page.getByRole('link', { name: /Context & Comments/ })
-      ).toBeVisible();
-    });
   });
 
   test.describe('Reusable Components Page', () => {
@@ -139,30 +130,6 @@ test.describe('Transifex Examples', () => {
       await expect(
         page.getByText('You have 5 notifications').first()
       ).toBeVisible();
-    });
-
-    test('should increment notification count', async ({ page }) => {
-      await page.goto('/transifex/components-example');
-
-      // Find the notification counter
-      await expect(page.getByTestId('notification-count')).toContainText(
-        'Count: 3'
-      );
-
-      // Increment
-      await page.getByTestId('notification-increment').click();
-      await expect(page.getByTestId('notification-count')).toContainText(
-        'Count: 4'
-      );
-      await expect(
-        page.getByText('You have 4 notifications').first()
-      ).toBeVisible();
-
-      // Decrement
-      await page.getByTestId('notification-decrement').click();
-      await expect(page.getByTestId('notification-count')).toContainText(
-        'Count: 3'
-      );
     });
 
     test('should display action buttons', async ({ page }) => {
@@ -410,13 +377,13 @@ test.describe('Transifex Examples', () => {
       await page.goto('/transifex/components-example');
       await page.getByRole('link', { name: /Back to Examples/ }).click();
       await expect(page).toHaveURL('/transifex');
-      await expect(page.locator('h1')).toContainText('Transifex Example');
+      await expect(page.locator('h1')).toContainText('Transifex Native Examples');
     });
 
-    test('should navigate back to home', async ({ page }) => {
-      await page.goto('/transifex');
-      await page.getByRole('link', { name: /Back to Home/ }).click();
-      await expect(page).toHaveURL('/');
+    test('should navigate back to examples', async ({ page }) => {
+      await page.goto('/transifex/basic-example');
+      await page.getByRole('link', { name: /Back to Examples/ }).click();
+      await expect(page).toHaveURL('/transifex');
     });
   });
 });

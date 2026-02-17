@@ -3,7 +3,7 @@
 import { tx } from '@transifex/native';
 import { TXProvider } from '@transifex/react';
 import { ReactNode, useEffect, useState } from 'react';
-import { KEYS } from './transifex/translationKeys';
+import { KEYS } from './transifex/shared/translationKeys';
 
 const translations = {
   en: {
