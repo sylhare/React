@@ -39,11 +39,11 @@ test.describe('Transifex Examples', () => {
 
     test('should display basic translations', async ({ page }) => {
       await page.goto('/transifex/basic-example');
-      await expect(page.getByText('Hello, World!')).toBeVisible();
-      await expect(page.getByText('Welcome to Transifex')).toBeVisible();
-      await expect(
-        page.getByText('This is a simple translation example.')
-      ).toBeVisible();
+      await expect(page.getByTestId('hello-world')).toContainText('Hello, World!');
+      await expect(page.getByTestId('welcome-transifex')).toContainText('Welcome to Transifex');
+      await expect(page.getByTestId('simple-example')).toContainText(
+        'This is a simple translation example.'
+      );
     });
 
     test('should display variable interpolations', async ({ page }) => {
