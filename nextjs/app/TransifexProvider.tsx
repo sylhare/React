@@ -1,0 +1,196 @@
+'use client';
+
+import { tx } from '@transifex/native';
+import { TXProvider } from '@transifex/react';
+import { ReactNode, useEffect, useState } from 'react';
+import { KEYS } from './transifex/shared/translationKeys';
+
+const translations = {
+  en: {
+    [KEYS.HELLO_WORLD]: 'Hello, World!',
+    [KEYS.WELCOME_TRANSIFEX]: 'Welcome to Transifex',
+    [KEYS.SIMPLE_EXAMPLE]: 'This is a simple translation example.',
+    [KEYS.HELLO_USERNAME]: 'Hello, {username}!',
+    [KEYS.WELCOME_BACK_USERNAME]: 'Welcome back, {username}! How are you today?',
+    [KEYS.ITEM_COST]: 'The {item} costs ${price}',
+    [KEYS.COUNT_ITEM]: '{count, plural, one {# item} other {# items}}',
+    [KEYS.COUNT_MESSAGE]: '{count, plural, one {# message} other {# messages}}',
+    [KEYS.COUNT_NOTIFICATION]: '{count, plural, one {You have # notification} other {You have # notifications}}',
+    [KEYS.COUNT_NEW_MESSAGE]: '{count, plural, one {You have # new message} other {You have # new messages}}',
+    [KEYS.READ]: 'Read',
+    [KEYS.CLOSE]: 'Close',
+    [KEYS.PRESENT]: 'Present',
+    [KEYS.DELETE]: 'Delete',
+    [KEYS.CANCEL]: 'Cancel',
+    [KEYS.SAMPLE_CONTENT]: 'Sample Content',
+    [KEYS.HELLO_WELCOME]: 'Hello, welcome to our application!',
+    [KEYS.TEXT_CHANGES]: 'This text will change based on the selected language.',
+    [KEYS.IN_STOCK]: 'In Stock',
+    [KEYS.OUT_OF_STOCK]: 'Out of Stock',
+    [KEYS.POST_NOUN]: 'Post',
+    [KEYS.POST_VERB]: 'Post',
+    [KEYS.LIKE_VERB]: 'Like',
+    [KEYS.LIKE_PREPOSITION]: 'Like',
+    [KEYS.SAVE_FILE]: 'Save',
+    [KEYS.SAVE_BOOKMARK]: 'Save',
+    [KEYS.DELETE_CONFIRM]: 'Are you sure you want to delete this?',
+    [KEYS.LOADING]: 'Loading...',
+    [KEYS.WELCOME_USER]: 'Welcome back, {username}',
+    [KEYS.UPGRADE_PRO]: 'Upgrade to Pro',
+    'test.key': 'Test translation for key: test.key',
+    'test.post': 'Post translation',
+    'search.placeholder': 'Search...',
+    'search.label': 'Search',
+    'button.save_tooltip': 'Click to save',
+    'button.save': 'Save',
+    'form.name_label': 'Name',
+    'form.name_placeholder': 'Enter your name',
+    'form.email_label': 'Email',
+    'form.email_placeholder': 'your@email.com',
+    'form.submit': 'Submit',
+    'form.language_label': 'Select Language',
+    'languages.english': 'English',
+    'languages.spanish': 'Spanish',
+    'languages.french': 'French',
+    'alerts.success': 'Operation completed successfully!',
+    'alerts.error': 'An error occurred. Please try again.',
+    'alerts.warning': 'Please review your information before proceeding.',
+  },
+  es: {
+    [KEYS.HELLO_WORLD]: 'Hola, Mundo!',
+    [KEYS.WELCOME_TRANSIFEX]: 'Bienvenido a Transifex',
+    [KEYS.SIMPLE_EXAMPLE]: 'Este es un ejemplo simple de traducción.',
+    [KEYS.HELLO_USERNAME]: '¡Hola, {username}!',
+    [KEYS.WELCOME_BACK_USERNAME]: '¡Bienvenido de vuelta, {username}! ¿Cómo estás hoy?',
+    [KEYS.ITEM_COST]: 'El {item} cuesta ${price}',
+    [KEYS.COUNT_ITEM]: '{count, plural, one {# artículo} other {# artículos}}',
+    [KEYS.COUNT_MESSAGE]: '{count, plural, one {# mensaje} other {# mensajes}}',
+    [KEYS.COUNT_NOTIFICATION]: '{count, plural, one {Tienes # notificación} other {Tienes # notificaciones}}',
+    [KEYS.COUNT_NEW_MESSAGE]: '{count, plural, one {Tienes # mensaje nuevo} other {Tienes # mensajes nuevos}}',
+    [KEYS.READ]: 'Leer',
+    [KEYS.CLOSE]: 'Cerrar',
+    [KEYS.PRESENT]: 'Regalo',
+    [KEYS.DELETE]: 'Eliminar',
+    [KEYS.CANCEL]: 'Cancelar',
+    [KEYS.SAMPLE_CONTENT]: 'Contenido de Ejemplo',
+    [KEYS.HELLO_WELCOME]: '¡Hola, bienvenido a nuestra aplicación!',
+    [KEYS.TEXT_CHANGES]: 'Este texto cambiará según el idioma seleccionado.',
+    [KEYS.IN_STOCK]: 'En Stock',
+    [KEYS.OUT_OF_STOCK]: 'Agotado',
+    [KEYS.POST_NOUN]: 'Publicación',
+    [KEYS.POST_VERB]: 'Publicar',
+    [KEYS.LIKE_VERB]: 'Me gusta',
+    [KEYS.LIKE_PREPOSITION]: 'Como',
+    [KEYS.SAVE_FILE]: 'Guardar',
+    [KEYS.SAVE_BOOKMARK]: 'Guardar',
+    [KEYS.DELETE_CONFIRM]: '¿Estás seguro de que quieres eliminar esto?',
+    [KEYS.LOADING]: 'Cargando...',
+    [KEYS.WELCOME_USER]: 'Bienvenido de nuevo, {username}',
+    [KEYS.UPGRADE_PRO]: 'Mejorar a Pro',
+    'test.key': 'Traducción de prueba para clave: test.key',
+    'test.post': 'Traducción de publicación',
+    'search.placeholder': 'Buscar...',
+    'search.label': 'Buscar',
+    'button.save_tooltip': 'Haz clic para guardar',
+    'button.save': 'Guardar',
+    'form.name_label': 'Nombre',
+    'form.name_placeholder': 'Ingresa tu nombre',
+    'form.email_label': 'Correo electrónico',
+    'form.email_placeholder': 'tu@correo.com',
+    'form.submit': 'Enviar',
+    'form.language_label': 'Seleccionar idioma',
+    'languages.english': 'Inglés',
+    'languages.spanish': 'Español',
+    'languages.french': 'Francés',
+    'alerts.success': '¡Operación completada con éxito!',
+    'alerts.error': 'Ocurrió un error. Por favor, inténtalo de nuevo.',
+    'alerts.warning': 'Por favor, revisa tu información antes de continuar.',
+  },
+  fr: {
+    [KEYS.HELLO_WORLD]: 'Bonjour le monde!',
+    [KEYS.WELCOME_TRANSIFEX]: 'Bienvenue sur Transifex',
+    [KEYS.SIMPLE_EXAMPLE]: 'Ceci est un exemple de traduction simple.',
+    [KEYS.HELLO_USERNAME]: 'Bonjour, {username}!',
+    [KEYS.WELCOME_BACK_USERNAME]: 'Bon retour, {username}! Comment allez-vous aujourd\'hui?',
+    [KEYS.ITEM_COST]: 'Le {item} coûte ${price}',
+    [KEYS.COUNT_ITEM]: '{count, plural, one {# article} other {# articles}}',
+    [KEYS.COUNT_MESSAGE]: '{count, plural, one {# message} other {# messages}}',
+    [KEYS.COUNT_NOTIFICATION]: '{count, plural, one {Vous avez # notification} other {Vous avez # notifications}}',
+    [KEYS.COUNT_NEW_MESSAGE]: '{count, plural, one {Vous avez # nouveau message} other {Vous avez # nouveaux messages}}',
+    [KEYS.READ]: 'Lire',
+    [KEYS.CLOSE]: 'Fermer',
+    [KEYS.PRESENT]: 'Cadeau',
+    [KEYS.DELETE]: 'Supprimer',
+    [KEYS.CANCEL]: 'Annuler',
+    [KEYS.SAMPLE_CONTENT]: 'Contenu d\'exemple',
+    [KEYS.HELLO_WELCOME]: 'Bonjour, bienvenue dans notre application!',
+    [KEYS.TEXT_CHANGES]: 'Ce texte changera en fonction de la langue sélectionnée.',
+    [KEYS.IN_STOCK]: 'En Stock',
+    [KEYS.OUT_OF_STOCK]: 'Rupture de Stock',
+    [KEYS.POST_NOUN]: 'Publication',
+    [KEYS.POST_VERB]: 'Publier',
+    [KEYS.LIKE_VERB]: "J'aime",
+    [KEYS.LIKE_PREPOSITION]: 'Comme',
+    [KEYS.SAVE_FILE]: 'Enregistrer',
+    [KEYS.SAVE_BOOKMARK]: 'Sauvegarder',
+    [KEYS.DELETE_CONFIRM]: 'Êtes-vous sûr de vouloir supprimer ceci?',
+    [KEYS.LOADING]: 'Chargement...',
+    [KEYS.WELCOME_USER]: 'Bon retour, {username}',
+    [KEYS.UPGRADE_PRO]: 'Passer à Pro',
+    'test.key': 'Traduction de test pour clé: test.key',
+    'test.post': 'Traduction de publication',
+    'search.placeholder': 'Rechercher...',
+    'search.label': 'Rechercher',
+    'button.save_tooltip': 'Cliquez pour enregistrer',
+    'button.save': 'Enregistrer',
+    'form.name_label': 'Nom',
+    'form.name_placeholder': 'Entrez votre nom',
+    'form.email_label': 'Email',
+    'form.email_placeholder': 'votre@email.com',
+    'form.submit': 'Soumettre',
+    'form.language_label': 'Sélectionner la langue',
+    'languages.english': 'Anglais',
+    'languages.spanish': 'Espagnol',
+    'languages.french': 'Français',
+    'alerts.success': 'Opération terminée avec succès!',
+    'alerts.error': 'Une erreur s\'est produite. Veuillez réessayer.',
+    'alerts.warning': 'Veuillez vérifier vos informations avant de continuer.',
+  },
+};
+
+let txInitialized = false;
+
+function initializeTx() {
+  if (txInitialized || typeof window === 'undefined') {
+    return;
+  }
+
+  tx.init({
+    token: '',
+
+    currentLocale: 'en',
+  });
+
+  Object.entries(translations).forEach(([locale, strings]) => {
+    Object.entries(strings).forEach(([key, value]) => {
+      tx.cache.update(locale, { [key]: value });
+    });
+  });
+
+  txInitialized = true;
+}
+
+export function TransifexProvider({ children }: { children: ReactNode }) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    initializeTx();
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
+  return <TXProvider tx={tx}>{children}</TXProvider>;
+}
