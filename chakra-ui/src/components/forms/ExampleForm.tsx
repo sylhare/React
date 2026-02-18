@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { Input } from '@chakra-ui/input';
-import { Button, FormControl, FormErrorMessage, FormLabel, HStack, VStack } from '@chakra-ui/react';
+import { Button, FormControl, FormErrorMessage, FormLabel, HStack, Input, VStack } from '@chakra-ui/react';
 
 interface ExampleFromValues {
   name: string;

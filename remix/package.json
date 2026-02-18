@@ -19,7 +19,7 @@
     "@remix-run/node": "^2.13.1",
     "@remix-run/react": "^2.13.1",
     "@remix-run/serve": "^2.13.1",
-    "@testing-library/react": "^14.2.2",
+    "@testing-library/react": "^16.3.2",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -28,7 +28,7 @@
   "devDependencies": {
     "@remix-run/dev": "^2.13.1",
     "@remix-run/testing": "^2.13.1",
-    "@testing-library/dom": "^7.31.2",
+    "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/user-event": "^14.6.0",
     "@types/react": "^18.3.11",

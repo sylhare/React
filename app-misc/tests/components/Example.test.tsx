@@ -44,8 +44,8 @@ describe('Example', () => {
     expect(screen.queryByDisplayValue('value-1')).toBeNull();
   })
 
-  it('updates an input with user event', () => {
-    userEvent.type(screen.getByDisplayValue('value-1'), ' new value');
+  it('updates an input with user event', async () => {
+    await userEvent.type(screen.getByDisplayValue('value-1'), ' new value');
     expect(screen.getByDisplayValue('value-1 new value')).toBeVisible();
     expect(screen.queryByDisplayValue('value-1')).toBeNull();
   })
