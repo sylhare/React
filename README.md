@@ -2,61 +2,91 @@
 
 Experimentation with React. [Get started](https://reactjs.org/)!
 
+This repository is a [Yarn workspace](https://yarnpkg.com/features/workspaces) monorepo managed with Yarn 4 (Berry).
+
+## Getting started
+
+Install [Node.js](https://nodejs.org/) and enable Corepack (bundled with Node.js 16+):
+
+```bash
+corepack enable
+corepack prepare yarn@stable --activate
+```
+
+Then install all workspace dependencies from the root:
+
+```bash
+yarn install
+```
+
+## Running tests
+
+Run tests across all workspaces at once:
+
+```bash
+yarn workspaces foreach -A run test
+```
+
+Run tests for a single workspace:
+
+```bash
+yarn workspace <workspace-name> test
+```
+
+For example:
+
+```bash
+yarn workspace nextjs test
+yarn workspace app test
+yarn workspace remix-react-testing test
+```
+
+## Adding a new workspace
+
+1. Create a new directory at the root of the repository and add a `package.json` with a unique `name` field:
+
+```json
+{
+  "name": "my-new-app",
+  "private": true,
+  "scripts": {
+    "build": "...",
+    "test": "..."
+  }
+}
+```
+
+2. Register it in the root `package.json` workspaces list:
+
+```json
+{
+  "workspaces": [
+    "app-misc",
+    "chakra-ui",
+    "my-new-app"
+  ]
+}
+```
+
+3. Run `yarn install` from the root to pick it up.
+
+The new workspace's dependencies will be hoisted to the root `node_modules` automatically. Each workspace should declare its own dependencies — do not add application dependencies to the root `package.json`.
+
+## Workspaces
+
+| Directory  | Name                  | Description                        |
+|------------|-----------------------|------------------------------------|
+| `app-misc` | `app`                 | Potluck of different examples      |
+| `chakra-ui`| `chakra-ui`           | Example with Chakra UI             |
+| `dnd`      | `react-dnd-example-3` | Example with Drag and Drop         |
+| `nextjs`   | `nextjs`              | Example with Next.js               |
+| `remix`    | `remix-react-testing` | Example with Remix                 |
+| `router`   | `frontend-react`      | Example with React Router          |
+
 ## Basic
 
 To start with the syntax.
 No npm / yarn installation required to test it, but it might be getting old (2016).
-
-## Misc-App
-
-Potluck of different examples.
-
-## Create-App
-
-Created from the old starting [project](create-app/README.md) which might be mostly deprecated now.
-Using [yarn](https://yarnpkg.com/) as it is well integrated with React.
-
-Start with:
-
-```bash
-yarn start
-```
-
-Run the test with jest using:
-
-```bash
-yarn test
-```
-
-### Common errors
-
-- > error babel-jest@26.6.3: The engine "node" is incompatible with this module. Expected version ">= 10.14.2". Got "10.13.0"
-
-Update node to the latest version. If you are using [`n`](https://github.com/tj/n) (useful when working with different node versions) do:
-
-```bash
-n latest
-```
-
-- > Cannot find module '@testing-library/react/types' from 'src/App.test.js'
-
-It may be deprecated and may not have been fixed, but it works if you remove the `/types` and use directly:
-
-```js
-import { render, screen } from '@testing-library/react';
-```
-
-## Chakra UI
-
-Example with Chakra UI and React.
-
-## DnD
-
-Example with Drag and Drop.
-
-## Router
-
-Example with React Router.
 
 ## Sources
 
