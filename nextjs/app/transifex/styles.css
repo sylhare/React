@@ -1182,3 +1182,76 @@
 .space-y-4 > * + * {
   margin-top: 1rem;
 }
+
+/* Test Key Page */
+.test-container {
+  padding: 2rem;
+}
+
+.test-section {
+  margin-top: 2rem;
+}
+
+.test-description {
+  color: rgb(107 114 128);
+  font-size: 0.875rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .test-description {
+    color: rgb(156 163 175);
+  }
+}
+
+.test-note {
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.test-note.success {
+  color: rgb(22 163 74);
+}
+
+.test-note.error {
+  color: rgb(220 38 38);
+}
+
+@media (prefers-color-scheme: dark) {
+  .test-note.success {
+    color: rgb(134 239 172);
+  }
+  .test-note.error {
+    color: rgb(252 165 165);
+  }
+}
+
+.test-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-test {
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: rgb(229 231 235);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.btn-test:hover {
+  background-color: rgb(209 213 219);
+}
+
+@media (prefers-color-scheme: dark) {
+  .btn-test {
+    background-color: rgb(55 65 81);
+    color: white;
+  }
+  .btn-test:hover {
+    background-color: rgb(75 85 99);
+  }
+}

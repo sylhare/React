@@ -26,7 +26,17 @@ export default function TransifexExamplesPage() {
         </Link>
       </div>
 
-      <Link href="/" className="link">
+      <div style={{ marginTop: '2rem', padding: '1rem', backgroundColor: '#f0f0f0', borderRadius: '0.5rem' }}>
+        <h3 style={{ fontSize: '1rem', fontWeight: 600, marginBottom: '0.5rem' }}>Testing & Advanced</h3>
+        <p style={{ fontSize: '0.875rem', color: '#666', marginBottom: '1rem' }}>
+          Test the _key attribute behavior and fallback patterns
+        </p>
+        <Link href="/transifex/test-key-attribute" className="link">
+          → Test _key Attribute Functionality
+        </Link>
+      </div>
+
+      <Link href="/" className="link" style={{ marginTop: '2rem', display: 'inline-block' }}>
         ← Back to Home
       </Link>
     </div>
