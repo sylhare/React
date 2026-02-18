@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { useLocale } from '@transifex/react';
-import { tx } from '@transifex/native';
 import {
   SearchInput,
   TooltipButton,
@@ -10,37 +9,18 @@ import {
   LanguageSelect,
   AlertExample,
 } from './components';
+import { LanguageSwitcher } from '../shared/LanguageSwitcher';
 import '../styles.css';
 
 export default function StringPropsExamplePage() {
   const locale = useLocale();
   const currentLocale = String(locale);
 
-  const handleLanguageChange = (langCode: string) => {
-    tx.setCurrentLocale(langCode);
-  };
-
-  const languages = [
-    { code: 'en', name: 'English' },
-    { code: 'es', name: 'Español' },
-    { code: 'fr', name: 'Français' },
-  ];
-
   return (
     <div className="container">
       <div className="header">
         <h1 className="heading-1">String Props Example</h1>
-        <div className="lang-switcher">
-          {languages.map((lang) => (
-            <button
-              key={lang.code}
-              onClick={() => handleLanguageChange(lang.code)}
-              className={`btn-lang ${currentLocale === lang.code ? 'active' : ''}`}
-            >
-              {lang.name}
-            </button>
-          ))}
-        </div>
+        <LanguageSwitcher />
       </div>
 
       <p className="debug-info">
