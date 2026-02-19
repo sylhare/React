@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "workspaces": [
+    "app-misc",
+    "chakra-ui",
+    "dnd",
+    "nextjs",
+    "remix",
+    "router"
+  ]
+}

@@ -6,6 +6,11 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 export default defineConfig({
   plugins: [react(), tsconfigPaths()],
   test: {
+    server: {
+      deps: {
+        inline: ['styled-components'],
+      },
+    },
     environment: 'jsdom',
     setupFiles: ['./__tests__/vitest.setup.ts'],
     watch: false,
