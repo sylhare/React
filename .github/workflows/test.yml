@@ -1,5 +1,5 @@
 # Locally
-# for dir in app-misc chakra-ui dnd router; do echo "Processing $dir"; cd $dir; yarn install; yarn build; yarn test; cd ..; echo "Finished processing $dir"; done
+# corepack enable && corepack prepare yarn@stable --activate && yarn install && yarn workspaces foreach -A run build && yarn workspaces foreach -A run test
 name: Build and Test
 
 on:
@@ -13,24 +13,22 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        directory: ['app-misc', 'chakra-ui', 'dnd', 'router', 'remix']
-        # Add more directories as needed
-
     steps:
       - uses: actions/checkout@v4
 
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '24'
+
+      - name: Install latest Yarn
+        run: corepack enable && corepack prepare yarn@stable --activate
 
       - name: Install dependencies
-        run: cd ${{ matrix.directory }} && yarn install
+        run: yarn install
 
       - name: Build
-        run: cd ${{ matrix.directory }} && yarn build
+        run: yarn workspaces foreach -A run build
 
       - name: Run tests
-        run: cd ${{ matrix.directory }} && yarn test
+        run: yarn workspaces foreach -A run test

@@ -54,3 +54,4 @@ Temporary Items
 */dist
 **/test-results
 **/playwright-report
+.yarn/**
