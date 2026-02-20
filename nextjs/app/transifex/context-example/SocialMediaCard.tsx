@@ -49,6 +49,7 @@ export function SocialMediaCard({
           <button
             onClick={() => setShowDeleteConfirm(true)}
             className="delete-btn"
+            data-testid="delete-btn"
           >
             <TrashIcon className="icon" />
           </button>
@@ -66,6 +67,7 @@ export function SocialMediaCard({
           <button
             onClick={() => setIsLiked(!isLiked)}
             className={`social-btn-like ${isLiked ? 'active' : ''}`}
+            data-testid="like-btn"
           >
             <HeartIcon className="icon" filled={isLiked} />
             {COMMON.like.asVerb()} ({likes + (isLiked ? 1 : 0)})
@@ -83,12 +85,12 @@ export function SocialMediaCard({
 
       {/* Delete Confirmation Modal */}
       {showDeleteConfirm && (
-        <div className="delete-modal">
+        <div className="delete-modal" data-testid="delete-modal">
           <p className="delete-message">
             {MESSAGES.deleteConfirmation()}
           </p>
           {isLoading ? (
-            <div className="loading-state">
+            <div className="loading-state" data-testid="loading">
               {MESSAGES.loading()}
             </div>
           ) : (
@@ -96,12 +98,14 @@ export function SocialMediaCard({
               <button
                 onClick={handleDelete}
                 className="btn-delete"
+                data-testid="delete-confirm-btn"
               >
                 {ACTIONS.delete()}
               </button>
               <button
                 onClick={() => setShowDeleteConfirm(false)}
                 className="btn-cancel"
+                data-testid="cancel-btn"
               >
                 {ACTIONS.cancel()}
               </button>

@@ -19,7 +19,7 @@ export default function StringPropsExamplePage() {
   return (
     <div className="container">
       <div className="header">
-        <h1 className="heading-1">String Props Example</h1>
+        <h1 className="heading-1" data-testid="page-heading">String Props Example</h1>
         <LanguageSwitcher />
       </div>
 

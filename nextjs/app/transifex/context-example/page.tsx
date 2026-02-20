@@ -14,7 +14,7 @@ export default function ContextExamplePage() {
   return (
     <div className="container">
       <div className="header">
-        <h1 className="heading-1">Context & Comments</h1>
+        <h1 className="heading-1" data-testid="page-heading">Context & Comments</h1>
         <LanguageSwitcher />
       </div>
 
