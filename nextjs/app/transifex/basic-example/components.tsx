@@ -74,19 +74,21 @@ export function PluralExample() {
           <button
             onClick={() => setCount(Math.max(0, count - 1))}
             className="btn-counter"
+            data-testid="count-decrement"
           >
             -
           </button>
-          <span className="debug-info">Count: {count}</span>
+          <span className="debug-info" data-testid="count-display">Count: {count}</span>
           <button
             onClick={() => setCount(count + 1)}
             className="btn-counter"
+            data-testid="count-increment"
           >
             +
           </button>
         </div>
         <div className="space-y-2">
-          <p className="text-lg">
+          <p className="text-lg" data-testid="count-items">
             <T _str={KEYS.COUNT_ITEM} count={count} />
           </p>
           <p className="text-lg">

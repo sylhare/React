@@ -13,12 +13,12 @@ export default function TransifexExample() {
   return (
     <div className="container">
       <div className="header">
-        <h1 className="heading-1">Transifex Example</h1>
+        <h1 className="heading-1" data-testid="page-heading">Transifex Example</h1>
         <LanguageSwitcher />
       </div>
 
       <p className="debug-info">
-        Current Language: <span className="font-semibold">{currentLocale}</span>
+        Current Language: <span className="font-semibold" data-testid="current-locale">{currentLocale}</span>
       </p>
 
       <div className="examples">

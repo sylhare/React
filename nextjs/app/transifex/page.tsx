@@ -6,7 +6,7 @@ import './styles.css';
 export default function TransifexExamplesPage() {
   return (
     <div className="container">
-      <h1 className="heading-1">Transifex Native Examples</h1>
+      <h1 className="heading-1" data-testid="page-heading">Transifex Native Examples</h1>
       <p className="text-muted">
         Learn how to implement internationalization in Next.js using Transifex Native.
       </p>

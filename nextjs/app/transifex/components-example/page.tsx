@@ -19,7 +19,7 @@ export default function ComponentsExamplePage() {
   return (
     <div className="container">
       <div className="header">
-        <h1 className="heading-1">Reusable Components</h1>
+        <h1 className="heading-1" data-testid="page-heading">Reusable Components</h1>
         <LanguageSwitcher />
       </div>
 

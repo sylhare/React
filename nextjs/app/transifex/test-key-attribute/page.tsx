@@ -14,7 +14,7 @@ export default function TestKeyAttributePage() {
   return (
     <div className="container">
       <div className="header">
-        <h1 className="heading-1">Translation Key Attribute Behavior</h1>
+        <h1 className="heading-1" data-testid="page-heading">Translation Key Attribute Behavior</h1>
         <LanguageSwitcher />
       </div>
 
