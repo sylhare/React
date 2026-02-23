@@ -1,9 +1,8 @@
 'use client';
 
-import { useLocale, T, useT } from '@transifex/react';
+import { T, useLocale, useT } from '@transifex/react';
 import Link from 'next/link';
 import { LanguageSwitcher } from '../shared/LanguageSwitcher';
-import { KEYS } from '../shared/translationKeys';
 import '../styles.css';
 
 export default function TestKeyAttributePage() {
@@ -49,31 +48,32 @@ export default function TestKeyAttributePage() {
 
         <div className="card" data-testid="test-4">
           <h2 className="heading-2">Test 4: Missing translation with fallback</h2>
-          <p data-testid="test-4-output" className="text-lg"><T _str="This is the fallback text" _key="test.missing" /></p>
+          <p data-testid="test-4-output" className="text-lg"><T _str="This is the fallback text" _key="test.missing" />
+          </p>
           <p className="test-description">
             _key: "test.missing" | _str: "This is the fallback text"
           </p>
         </div>
 
         <div className="card" data-testid="test-5">
-          <h2 className="heading-2">Test 5: Using _context (metadata for translators)</h2>
-          <p data-testid="test-5-output" className="text-lg"><T _str="Post" _key="test.post" _context="verb" /></p>
+          <h2 className="heading-2">Test 5: "Post" as a verb (separate key + _context)</h2>
+          <p data-testid="test-5-output" className="text-lg"><T _str="Post" _key="test.post.verb" _context="verb: to publish/submit something" /></p>
           <p className="test-description">
-            _key: "test.post" | _str: "Post" | _context: "verb"
+            _key: "test.post.verb" | _str: "Post" | _context: "verb: to publish/submit something"
           </p>
           <p className="test-note" style={{ fontSize: '0.875rem', marginTop: '0.5rem', color: 'rgb(107 114 128)' }}>
-            Note: _context provides information to translators but does not create different translations in offline cache mode
+            Note: Use separate keys per context. _context hints help translators choose the right form.
           </p>
         </div>
 
         <div className="card" data-testid="test-6">
-          <h2 className="heading-2">Test 6: Same key without _context</h2>
-          <p data-testid="test-6-output" className="text-lg"><T _str="Post" _key="test.post" /></p>
+          <h2 className="heading-2">Test 6: "Post" as a noun (separate key + _context)</h2>
+          <p data-testid="test-6-output" className="text-lg"><T _str="Post" _key="test.post.noun" _context="noun: a blog post or article" /></p>
           <p className="test-description">
-            _key: "test.post" | _str: "Post"
+            _key: "test.post.noun" | _str: "Post" | _context: "noun: a blog post or article"
           </p>
           <p className="test-note" style={{ fontSize: '0.875rem', marginTop: '0.5rem', color: 'rgb(107 114 128)' }}>
-            Note: Same result as Test 5, showing _context is informational only
+            Note: Different key → different translation (es: Publicar vs Publicación, fr: Publier vs Publication)
           </p>
         </div>
       </div>
