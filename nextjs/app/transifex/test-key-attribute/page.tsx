@@ -26,7 +26,7 @@ export default function TestKeyAttributePage() {
           <h2 className="heading-2">Test 1: Key-only approach (_str with key)</h2>
           <p data-testid="test-1-output" className="text-lg"><T _str="test.key" /></p>
           <p className="test-description">
-            _key: (none) | _str: "test.key"
+            _key: (none) | _str: &#34;test.key&#34;
           </p>
         </div>
 
@@ -34,7 +34,7 @@ export default function TestKeyAttributePage() {
           <h2 className="heading-2">Test 2: Using _key with _str fallback (RECOMMENDED)</h2>
           <p data-testid="test-2-output" className="text-lg"><T _str="Fallback text" _key="test.key" /></p>
           <p className="test-description">
-            _key: "test.key" | _str: "Fallback text"
+            _key: &#34;test.key&#34; | _str: &#34;Fallback text&#34;
           </p>
         </div>
 
@@ -42,7 +42,7 @@ export default function TestKeyAttributePage() {
           <h2 className="heading-2">Test 3: useT() hook with _key</h2>
           <p data-testid="test-3-output" className="text-lg">{t('Fallback text', { _key: 'test.key' })}</p>
           <p className="test-description">
-            _key: "test.key" | _str: "Fallback text"
+            _key: &#34;test.key&#34; | _str: &#34;Fallback text&#34;
           </p>
         </div>
 
@@ -51,15 +51,15 @@ export default function TestKeyAttributePage() {
           <p data-testid="test-4-output" className="text-lg"><T _str="This is the fallback text" _key="test.missing" />
           </p>
           <p className="test-description">
-            _key: "test.missing" | _str: "This is the fallback text"
+            _key: &#34;test.missing&#34; | _str: &#34;This is the fallback text&#34;
           </p>
         </div>
 
         <div className="card" data-testid="test-5">
-          <h2 className="heading-2">Test 5: "Post" as a verb (separate key + _context)</h2>
+          <h2 className="heading-2">Test 5: &#34;Post&#34; as a verb (separate key + _context)</h2>
           <p data-testid="test-5-output" className="text-lg"><T _str="Post" _key="test.post.verb" _context="verb: to publish/submit something" /></p>
           <p className="test-description">
-            _key: "test.post.verb" | _str: "Post" | _context: "verb: to publish/submit something"
+            _key: &#34;test.post.verb&#34; | _str: &#34;Post&#34; | _context: &#34;verb: to publish/submit something&#34;
           </p>
           <p className="test-note" style={{ fontSize: '0.875rem', marginTop: '0.5rem', color: 'rgb(107 114 128)' }}>
             Note: Use separate keys per context. _context hints help translators choose the right form.
@@ -67,10 +67,10 @@ export default function TestKeyAttributePage() {
         </div>
 
         <div className="card" data-testid="test-6">
-          <h2 className="heading-2">Test 6: "Post" as a noun (separate key + _context)</h2>
+          <h2 className="heading-2">Test 6: &#34;Post&#34; as a noun (separate key + _context)</h2>
           <p data-testid="test-6-output" className="text-lg"><T _str="Post" _key="test.post.noun" _context="noun: a blog post or article" /></p>
           <p className="test-description">
-            _key: "test.post.noun" | _str: "Post" | _context: "noun: a blog post or article"
+            _key: &#34;test.post.noun&#34; | _str: &#34;Post&#34; | _context: &#34;noun: a blog post or article&#34;
           </p>
           <p className="test-note" style={{ fontSize: '0.875rem', marginTop: '0.5rem', color: 'rgb(107 114 128)' }}>
             Note: Different key → different translation (es: Publicar vs Publicación, fr: Publier vs Publication)

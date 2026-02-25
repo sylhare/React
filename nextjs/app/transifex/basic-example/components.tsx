@@ -24,7 +24,7 @@ export function BasicTranslation() {
           <p className="text-lg" data-testid="welcome-transifex">
             <T _str="Welcome to Transifex" _key={KEYS.WELCOME_TRANSIFEX} />
           </p>
-          <p className="text-muted">Fallback: Shows "Welcome to Transifex" if translation missing</p>
+          <p className="text-muted">Fallback: Shows &#34;Welcome to Transifex&#34; if translation missing</p>
         </div>
 
         <div>
