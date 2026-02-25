@@ -1,5 +1,4 @@
 import { useT } from '@transifex/react';
-import { KEYS } from '../shared/translationKeys';
 
 /**
  * Search input component requiring string placeholder
