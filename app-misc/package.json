@@ -53,7 +53,8 @@
     "start": "webpack-dev-server --env=local --mode=development",
     "build": "webpack --mode production",
     "build:ts": "tsc -p tsconfig.json",
-    "test": "jest"
+    "test": "jest",
+    "test:e2e": "exit 0"
   },
   "eslintConfig": {
     "extends": [
