@@ -28,6 +28,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --passWithNoTests --watchAll=false",
+    "test:e2e": "exit 0",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

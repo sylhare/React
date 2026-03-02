@@ -32,3 +32,9 @@ jobs:
 
       - name: Run tests
         run: yarn workspaces foreach -A run test
+
+      - name: Install Playwright browsers
+        run: yarn workspace nextjs exec playwright install --with-deps chromium
+
+      - name: Run e2e tests
+        run: yarn workspaces foreach -A run test:e2e
