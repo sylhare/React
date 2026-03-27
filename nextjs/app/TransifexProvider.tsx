@@ -185,7 +185,7 @@ export function TransifexProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     initializeTx();
-    setMounted(true);
+    queueMicrotask(() => setMounted(true));
   }, []);
 
   if (!mounted) {
