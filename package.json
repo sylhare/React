@@ -1,5 +1,6 @@
 {
   "private": true,
+  "packageManager": "yarn@4.13.0",
   "workspaces": [
     "app-misc",
     "chakra-ui",
