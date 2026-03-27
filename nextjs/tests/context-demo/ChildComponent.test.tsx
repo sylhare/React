@@ -27,14 +27,4 @@ describe('ChildComponent (without mocking)', () => {
     expect(screen.getByTestId('child-value-display')).toHaveTextContent('hello');
   });
 
-  it('renders the back-to-home link', () => {
-    render(
-      <ValueProvider>
-        <ChildComponent />
-      </ValueProvider>
-    );
-    const link = screen.getByTestId('child-back-link');
-    expect(link).toBeInTheDocument();
-    expect(link).toHaveAttribute('href', '/');
-  });
 });

@@ -7,7 +7,7 @@ interface ValueContextType {
   setValue: (v: string) => void;
 }
 
-export const ValueContext = createContext<ValueContextType | null>(null);
+const ValueContext = createContext<ValueContextType | null>(null);
 
 export function ValueProvider({ children }: { children: React.ReactNode }) {
   const [value, setValue] = useState('');

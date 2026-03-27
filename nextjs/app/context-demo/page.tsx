@@ -9,28 +9,26 @@ function ParentContent() {
 
   return (
     <div className="flex flex-col gap-8">
-      <div>
-        <h2 className="mb-4 text-xl font-semibold text-zinc-800 dark:text-zinc-100">
-          Parent Component
-        </h2>
-        <p className="mb-2 text-sm text-zinc-500 dark:text-zinc-400">
-          Current value from context:
-        </p>
-        <p
-          data-testid="parent-value-display"
-          className="mb-4 min-h-6 text-lg font-medium text-zinc-900 dark:text-zinc-50"
-        >
-          {value || <span className="text-zinc-400 italic">empty</span>}
-        </p>
-        <input
-          data-testid="parent-input"
-          type="text"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          placeholder="Update shared value from parent..."
-          className="w-full rounded-md border border-zinc-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-50"
-        />
-      </div>
+      <h2 className="mb-4 text-xl font-semibold text-zinc-800 dark:text-zinc-100">
+        Parent Component
+      </h2>
+      <p className="mb-2 text-sm text-zinc-500 dark:text-zinc-400">
+        Current value from context:
+      </p>
+      <p
+        data-testid="parent-value-display"
+        className="mb-4 min-h-6 text-lg font-medium text-zinc-900 dark:text-zinc-50"
+      >
+        {value || <span className="text-zinc-400 italic">empty</span>}
+      </p>
+      <input
+        data-testid="parent-input"
+        type="text"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        placeholder="Update shared value from parent..."
+        className="w-full rounded-md border border-zinc-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-50"
+      />
       <ChildComponent />
       <Link
         href="/"
