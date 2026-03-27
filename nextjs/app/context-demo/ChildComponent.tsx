@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { useValue } from './ValueContext';
 
 export default function ChildComponent() {
@@ -28,13 +27,6 @@ export default function ChildComponent() {
         placeholder="Update shared value from child..."
         className="w-full rounded-md border border-zinc-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-50"
       />
-      <Link
-        href="/"
-        data-testid="child-back-link"
-        className="mt-4 inline-block text-sm text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100"
-      >
-        ← Back to Home
-      </Link>
     </div>
   );
 }

@@ -28,8 +28,4 @@ describe('ChildComponent (with mocked useValue)', () => {
     expect(mockSetValue).toHaveBeenCalled();
   });
 
-  it('renders the back-to-home link', () => {
-    render(<ChildComponent />);
-    expect(screen.getByTestId('child-back-link')).toHaveAttribute('href', '/');
-  });
 });
