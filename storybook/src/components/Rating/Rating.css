@@ -1,0 +1,23 @@
+.ds-rating {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.ds-rating__star {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 26px;
+  line-height: 1;
+  padding: 2px;
+  color: var(--ds-color-border);
+  transition: color 0.1s ease;
+}
+
+.ds-rating__star.is-active {
+  color: var(--ds-warning);
+}
+
+.ds-rating__star:hover {
+  color: var(--ds-warning);
+}
