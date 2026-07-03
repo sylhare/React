@@ -1,0 +1,84 @@
+.ds-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid transparent;
+  border-radius: var(--ds-radius);
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.ds-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.ds-button--sm {
+  font-size: 13px;
+  padding: 6px 12px;
+}
+.ds-button--md {
+  font-size: 15px;
+  padding: 9px 16px;
+}
+.ds-button--lg {
+  font-size: 17px;
+  padding: 12px 22px;
+}
+
+.ds-button--full {
+  width: 100%;
+}
+
+/* Variants */
+.ds-button--primary {
+  background: var(--ds-color-primary);
+  color: #fff;
+}
+.ds-button--primary:hover:not(:disabled) {
+  background: var(--ds-color-primary-hover);
+}
+
+.ds-button--secondary {
+  background: var(--ds-color-secondary);
+  color: var(--ds-color-text);
+}
+.ds-button--secondary:hover:not(:disabled) {
+  background: var(--ds-color-secondary-hover);
+}
+
+.ds-button--danger {
+  background: var(--ds-color-danger);
+  color: #fff;
+}
+.ds-button--danger:hover:not(:disabled) {
+  background: var(--ds-color-danger-hover);
+}
+
+.ds-button--ghost {
+  background: transparent;
+  color: var(--ds-color-primary);
+  border-color: var(--ds-color-border);
+}
+.ds-button--ghost:hover:not(:disabled) {
+  background: var(--ds-color-secondary);
+}
+
+.ds-button__spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: ds-spin 0.6s linear infinite;
+}
+
+@keyframes ds-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

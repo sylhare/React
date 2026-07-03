@@ -1,0 +1,22 @@
+.ds-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: #fff;
+}
+
+.ds-badge--neutral {
+  background: var(--ds-neutral);
+}
+.ds-badge--success {
+  background: var(--ds-success);
+}
+.ds-badge--warning {
+  background: var(--ds-warning);
+}
+.ds-badge--info {
+  background: var(--ds-info);
+}
