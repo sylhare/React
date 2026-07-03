@@ -82,6 +82,7 @@ The new workspace's dependencies will be hoisted to the root `node_modules` auto
 | `nextjs`   | `nextjs`              | Example with Next.js               |
 | `remix`    | `remix-react-testing` | Example with Remix                 |
 | `router`   | `frontend-react`      | Example with React Router          |
+| `storybook`| `storybook`           | Design system documented with Storybook (Vite) |
 
 ## Basic
 
