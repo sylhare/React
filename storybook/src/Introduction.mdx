@@ -1,0 +1,38 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Design System/Introduction" />
+
+# Storybook Demo Design System
+
+This workspace shows a working [Storybook](https://storybook.js.org/) setup on top
+of **Vite**, and the features you get out of the box.
+
+## What this demo showcases
+
+- **Different versions of the same UI** — the `Button` renders as `primary`,
+  `secondary`, `danger` or `ghost`, in three sizes, plus loading/disabled states,
+  all driven by props and explored live through **Controls**.
+- **A component hierarchy** — the sidebar is organised with `title` paths:
+  - `Design System/Atoms` → `Button`, `Badge`
+  - `Design System/Molecules` → `Card`, `Rating`
+- **Interaction tests** — stories declare `play` functions (see
+  _Button → ClicksOnce_) that run in the **Interactions** panel.
+- **Accessibility checks** — the `@storybook/addon-a11y` panel audits each story.
+- **Auto-generated docs** — every component is tagged `autodocs`.
+
+## Tests around the stories
+
+The same stories are reused as unit tests with `composeStories` and run under
+**Vitest** (`*.test.tsx` next to each component). No duplicate fixtures: the story
+_is_ the test.
+
+## Commands
+
+```bash
+yarn workspace storybook storybook        # run Storybook (port 6006)
+yarn workspace storybook build-storybook  # static Storybook build
+yarn workspace storybook dev              # run the demo app
+yarn workspace storybook lint             # eslint (+ storybook rules)
+yarn workspace storybook build            # typecheck + vite build
+yarn workspace storybook test             # vitest (stories as tests)
+```
